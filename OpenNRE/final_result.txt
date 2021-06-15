@@ -1,0 +1,1091 @@
+(qrg) C:\Users\danil\Documents\Northwestern\Research\software\OpenNRE>python example/train_supervised_cnn.py --metric micro_f1 --batch_size 160 --lr 0.1 --weight_decay 1e-5 --max_epoch 70 --max_length 250 --seed 42 --encoder pcnn --train_file C:\Users\danil\Documents\Northwestern\QRG\Rep\ea\v8\question-answering\ke\preprocessing\distant_supervision_matches_open_nre_train.txt --val_file C:\Users\danil\Documents\Northwestern\QRG\Rep\ea\v8\question-answering\ke\preprocessing\distant_supervision_matches_open_nre_dev.txt --test_file C:\Users\danil\Documents\Northwestern\QRG\Rep\ea\v8\question-answering\ke\preprocessing\distant_supervision_matches_open_nre_final_test.txt --rel2id_file C:\Users\danil\Documents\Northwestern\QRG\Rep\ea\v8\question-answering\ke\preprocessing\distant_supervision_matches_open_nre_rel_2_id.jsonl --ckpt supervised_cnn_v3 --only_test
+2021-06-13 15:46:28,553 - root - INFO - Arguments:
+2021-06-13 15:46:28,553 - root - INFO -     ckpt: supervised_cnn_v3
+2021-06-13 15:46:28,554 - root - INFO -     only_test: True
+2021-06-13 15:46:28,554 - root - INFO -     encoder: pcnn
+2021-06-13 15:46:28,554 - root - INFO -     metric: micro_f1
+2021-06-13 15:46:28,554 - root - INFO -     dataset: none
+2021-06-13 15:46:28,554 - root - INFO -     train_file: C:\Users\danil\Documents\Northwestern\QRG\Rep\ea\v8\question-answering\ke\preprocessing\distant_supervision_matches_open_nre_train.txt
+2021-06-13 15:46:28,554 - root - INFO -     val_file: C:\Users\danil\Documents\Northwestern\QRG\Rep\ea\v8\question-answering\ke\preprocessing\distant_supervision_matches_open_nre_dev.txt
+2021-06-13 15:46:28,554 - root - INFO -     test_file: C:\Users\danil\Documents\Northwestern\QRG\Rep\ea\v8\question-answering\ke\preprocessing\distant_supervision_matches_open_nre_final_test.txt
+2021-06-13 15:46:28,554 - root - INFO -     rel2id_file: C:\Users\danil\Documents\Northwestern\QRG\Rep\ea\v8\question-answering\ke\preprocessing\distant_supervision_matches_open_nre_rel_2_id.jsonl
+2021-06-13 15:46:28,555 - root - INFO -     batch_size: 160
+2021-06-13 15:46:28,555 - root - INFO -     lr: 0.1
+2021-06-13 15:46:28,555 - root - INFO -     weight_decay: 1e-05
+2021-06-13 15:46:28,555 - root - INFO -     max_length: 250
+2021-06-13 15:46:28,556 - root - INFO -     max_epoch: 70
+2021-06-13 15:46:28,556 - root - INFO -     seed: 42
+2021-06-13 15:46:28,917 - root - INFO - Initializing word embedding with word2vec.
+2021-06-13 15:46:29,945 - root - INFO - Loaded sentence RE dataset C:\Users\danil\Documents\Northwestern\QRG\Rep\ea\v8\question-answering\ke\preprocessing\distant_supervision_matches_open_nre_train.txt with 25807 lines and 297 relations.
+2021-06-13 15:46:30,101 - root - INFO - Loaded sentence RE dataset C:\Users\danil\Documents\Northwestern\QRG\Rep\ea\v8\question-answering\ke\preprocessing\distant_supervision_matches_open_nre_dev.txt with 3000 lines and 297 relations.
+2021-06-13 15:46:30,399 - root - INFO - Loaded sentence RE dataset C:\Users\danil\Documents\Northwestern\QRG\Rep\ea\v8\question-answering\ke\preprocessing\distant_supervision_matches_open_nre_final_test.txt with 10000 lines and 297 relations.
+100%|██████████████████████████████████████████████████████████████████████████| 63/63 [00:08<00:00,  7.22it/s, acc=0.94]
+2021-06-13 15:46:40,650 - root - INFO - Evaluation result: {'acc': 0.9404, 'micro_p': 0.9404, 'micro_r': 0.9404, 'micro_f1': 0.9404}.
+predictions
+The character first appeared in the movie in 1999.
+{'pos': [4, 13], 'id': 'Actor', 'name': 'character'}
+{'pos': [20, 28], 'id': 'SomethingAppearingSomewhere', 'name': 'appeared'}
+GOLD = "entities_not_related"
+PREDICTED = "agentTypePerformsWorkOfType"
+EXISINTG: []
+
+This is how buckwheat got its name - buckwheat is a plant that is used like wheat and whose seeds look like "buck", or beech seeds.
+{'pos': [52, 57], 'id': 'PuttingSomethingSomewhere', 'name': 'plant'}
+{'pos': [66, 70], 'id': 'UsingAnObject', 'name': 'used'}
+GOLD = "entities_not_related"
+PREDICTED = "typePrimaryFunction-eventOccursAt"
+EXISINTG: []
+
+A machine gun is a weapon that can fire one bullet after another as long as the trigger is pulled and there are bullets ready to fire.
+{'pos': [35, 39], 'id': 'CombustionProcess', 'name': 'fire'}
+{'pos': [2, 9], 'id': 'MechanicalDevice', 'name': 'machine'}
+GOLD = "entities_not_related"
+PREDICTED = "typePrimaryFunction-deviceUsed"
+EXISINTG: []
+
+He was an important writer and director for the young East Germany.
+{'pos': [20, 26], 'id': 'Writer', 'name': 'writer'}
+{'pos': [31, 39], 'id': 'Manager', 'name': 'director'}
+GOLD = "entities_not_related"
+PREDICTED = "agentTypePerformsWorkOfType"
+EXISINTG: []
+
+If a game has a $10 limit, then a raise must be exactly $10.
+{'pos': [5, 9], 'id': 'WildAnimal', 'name': 'game'}
+{'pos': [27, 31], 'id': 'List', 'name': 'then'}
+GOLD = "entities_not_related"
+PREDICTED = "coExtensional"
+EXISINTG: []
+
+Two people inside a car were killed when the car was swept away by the floodwaters in Naranjos.
+{'pos': [20, 23], 'id': 'ElevatorCar', 'name': 'car'}
+{'pos': [29, 35], 'id': 'KillingByOrganism', 'name': 'killed'}
+GOLD = "entities_not_related"
+PREDICTED = "relationAllExists-properSubEvents"
+EXISINTG: []
+
+These great pianists became great stars in the way that, in music, only opera singers had been great stars before.
+{'pos': [34, 39], 'id': 'Actor', 'name': 'stars'}
+{'pos': [78, 85], 'id': 'Singer', 'name': 'singers'}
+GOLD = "entities_not_related"
+PREDICTED = "agentTypePerformsWorkOfType"
+EXISINTG: []
+
+In 1847 some friends arranged for him to stay with them, but he was very ill by then.
+{'pos': [21, 29], 'id': 'CausingToBeInACertainCondition', 'name': 'arranged'}
+{'pos': [80, 84], 'id': 'List', 'name': 'then'}
+GOLD = "entities_not_related"
+PREDICTED = "coExtensional"
+EXISINTG: []
+
+The Main Station offers international trains to the Netherlands, Belgium, France and Switzerland, too.
+{'pos': [4, 8], 'id': 'Ocean', 'name': 'main'}
+{'pos': [38, 44], 'id': 'Entourage', 'name': 'trains'}
+GOLD = "entities_not_related"
+PREDICTED = "relationExistsAll-associates"
+EXISINTG: []
+
+Then these ancient Chinese learnt farming.
+{'pos': [0, 4], 'id': 'List', 'name': 'then'}
+{'pos': [27, 33], 'id': 'Studying', 'name': 'learnt'}
+GOLD = "entities_not_related"
+PREDICTED = "coExtensional"
+EXISINTG: []
+
+It can be an animal, plant or any other thing.
+{'pos': [13, 19], 'id': 'Animal', 'name': 'animal'}
+{'pos': [21, 26], 'id': 'PlantingAPlant', 'name': 'plant'}
+GOLD = "entities_not_related"
+PREDICTED = "relationAllExists-objectTakenCareOf"
+EXISINTG: []
+
+Peru is the country south of Ecuador.
+{'pos': [29, 36], 'id': 'Ecuador', 'name': 'ecuador'}
+{'pos': [0, 4], 'id': 'Peru', 'name': 'peru'}
+GOLD = "entities_not_related"
+PREDICTED = "geographicalSubRegionsOfContinent"
+EXISINTG: []
+
+The second phrase has 2 bars (8 beats) of subdominant chord then 2 bars of tonic chord.
+{'pos': [4, 10], 'id': 'CalendarSecond', 'name': 'second'}
+{'pos': [60, 64], 'id': 'List', 'name': 'then'}
+GOLD = "entities_not_related"
+PREDICTED = "coExtensional"
+EXISINTG: []
+
+People were in pain and then they died a horrible death.
+{'pos': [15, 19], 'id': 'Pain-PhysiologicalCondition', 'name': 'pain'}
+{'pos': [24, 28], 'id': 'List', 'name': 'then'}
+GOLD = "entities_not_related"
+PREDICTED = "coExtensional"
+EXISINTG: []
+
+The pagans then decided to sign a truce with the Muslims.
+{'pos': [11, 15], 'id': 'List', 'name': 'then'}
+{'pos': [16, 23], 'id': 'IntentionalMentalEvent', 'name': 'decided'}
+GOLD = "entities_not_related"
+PREDICTED = "coExtensional"
+EXISINTG: []
+
+It happened in an industrial plant in the Italian town of Seveso.
+{'pos': [29, 34], 'id': 'Plant', 'name': 'plant'}
+{'pos': [42, 49], 'id': 'Italy', 'name': 'italian'}
+GOLD = "entities_not_related"
+PREDICTED = "typePrimaryFunction-eventOccursAt"
+EXISINTG: []
+
+An eyebrow is the stripe of hair about 2 cm over the eye.
+{'pos': [3, 6], 'id': 'Eye', 'name': 'eye'}
+{'pos': [28, 32], 'id': 'HairOnHead', 'name': 'hair'}
+GOLD = "entities_not_related"
+PREDICTED = "properPhysicalPartTypes"
+EXISINTG: []
+
+Today, specimens of the Australian Mountain Ash, are among the tallest trees in the world at up to 92 metres in height and the tallest of all flowering plants; taller trees such as the Coast Redwood are all conifers.
+{'pos': [84, 89], 'id': 'GeopoliticalEntity', 'name': 'world'}
+{'pos': [152, 158], 'id': 'ManufacturingFacility', 'name': 'plants'}
+GOLD = "entities_not_related"
+PREDICTED = "typePrimaryFunction-eventOccursAt"
+EXISINTG: []
+
+Dromedaries came from North Africa and the Greater Middle East region.
+{'pos': [22, 27], 'id': 'North-Generally', 'name': 'north'}
+{'pos': [58, 62], 'id': 'East-Generally', 'name': 'east'}
+GOLD = "entities_not_related"
+PREDICTED = "oppositeDirection-Interval"
+EXISINTG: []
+
+Giving pieces of music opus numbers helps us to know which piece of music it is.
+{'pos': [17, 22], 'id': 'Music', 'name': 'music'}
+{'pos': [7, 12], 'id': 'PartiallyTangible', 'name': 'piece'}
+GOLD = "entities_not_related"
+PREDICTED = "outputsCreated-TypeType"
+EXISINTG: []
+
+This outbreak of plague also spread north into Tyrol, an alpine region of western Austria and northern Italy.
+{'pos': [82, 89], 'id': 'Austria', 'name': 'austria'}
+{'pos': [103, 108], 'id': 'Italy', 'name': 'italy'}
+GOLD = "entities_not_related"
+PREDICTED = "geographicalSubRegionsOfContinent"
+EXISINTG: []
+
+Four of the five Great Lakes (Superior, Huron, Erie, and Ontario) are shared between Canada and the United States (Lake Michigan is wholly within the USA), and they make up 16% of the Earth's fresh water.
+{'pos': [146, 153], 'id': 'UnitedStatesOfAmerica', 'name': 'the usa'}
+{'pos': [198, 203], 'id': 'Water-Ingestible', 'name': 'water'}
+GOLD = "entities_not_related"
+PREDICTED = "mainConstituent-TypeType"
+EXISINTG: []
+
+The place where the river flows out into a bigger body of water is called the "mouth" of the river.
+{'pos': [58, 63], 'id': 'Water-Ingestible', 'name': 'water'}
+{'pos': [79, 84], 'id': 'Mouth', 'name': 'mouth'}
+GOLD = "entities_not_related"
+PREDICTED = "viscosityOfSubstance"
+EXISINTG: []
+
+If I want an apple, but think that the table across the room is just a picture of a table, then I will not walk to the table.
+{'pos': [91, 95], 'id': 'List', 'name': 'then'}
+{'pos': [39, 44], 'id': 'Table-PieceOfFurniture', 'name': 'table'}
+GOLD = "entities_not_related"
+PREDICTED = "coExtensional"
+EXISINTG: []
+
+Usually, some basic applications like a text editor, file browser and telnet do go on the boot device to be sure that they are always available even if only the boot is accessed.
+{'pos': [95, 101], 'id': 'Baster-Device', 'name': 'device'}
+{'pos': [29, 31], 'id': 'Accuracy', 'name': 'on'}
+GOLD = "entities_not_related"
+PREDICTED = "typePrimaryFunction-deviceUsed"
+EXISINTG: []
+
+Music without notes might be sound effects.
+{'pos': [29, 34], 'id': 'Hearing', 'name': 'sound'}
+{'pos': [0, 5], 'id': 'Music', 'name': 'music'}
+GOLD = "entities_not_related"
+PREDICTED = "outputsCreated-TypeType"
+EXISINTG: []
+
+Then, nervously, it was her turn.
+{'pos': [0, 4], 'id': 'List', 'name': 'then'}
+{'pos': [28, 32], 'id': 'Proposal', 'name': 'turn'}
+GOLD = "entities_not_related"
+PREDICTED = "coExtensional"
+EXISINTG: []
+
+Baltimore, Philadelphia, New York.
+{'pos': [11, 23], 'id': 'CityOfPhiladelphiaPA', 'name': 'philadelphia'}
+{'pos': [25, 33], 'id': 'NewYork-State', 'name': 'new york'}
+GOLD = "entities_not_related"
+PREDICTED = "cityInState"
+EXISINTG: []
+
+A woman wearing trousers which expose the upper back portion of her thong underwear is said to show a "whale tail".
+{'pos': [87, 91], 'id': 'Speaking', 'name': 'said'}
+{'pos': [109, 113], 'id': 'Tail-BodyPart', 'name': 'tail'}
+GOLD = "entities_not_related"
+PREDICTED = "relationExistsAll-associates"
+EXISINTG: []
+
+It looks a little like a crab, but its long arms are covered with yellow fur that looks like silk, so its discoverers, from the Monterey Bay Aquarium Research Insititute, named it the Yeti Crab or Yeti Lobster.
+{'pos': [73, 76], 'id': 'Fur', 'name': 'fur'}
+{'pos': [141, 149], 'id': 'Aquarium-Container', 'name': 'aquarium'}
+GOLD = "entities_not_related"
+PREDICTED = "typicalIngredientTypes"
+EXISINTG: []
+
+Read claims that he killed 19 people during his time as a criminal.
+{'pos': [58, 66], 'id': 'Criminal', 'name': 'criminal'}
+{'pos': [0, 4], 'id': 'DisplayStatus', 'name': 'read'}
+GOLD = "entities_not_related"
+PREDICTED = "agentTypePerformsWorkOfType"
+EXISINTG: []
+
+Paris was never the same as when I was poor and very happy."
+{'pos': [53, 58], 'id': 'Happiness', 'name': 'happy'}
+{'pos': [0, 5], 'id': 'CityOfParisFrance', 'name': 'paris'}
+GOLD = "entities_not_related"
+PREDICTED = "countryOfCity"
+EXISINTG: []
+
+It will then block the rays from the sun.
+{'pos': [8, 12], 'id': 'List', 'name': 'then'}
+{'pos': [13, 18], 'id': 'CoveringSomething', 'name': 'block'}
+GOLD = "entities_not_related"
+PREDICTED = "coExtensional"
+EXISINTG: []
+
+Then he escapes.
+{'pos': [0, 4], 'id': 'List', 'name': 'then'}
+{'pos': [8, 15], 'id': 'EscapingFromAPlace', 'name': 'escapes'}
+GOLD = "entities_not_related"
+PREDICTED = "coExtensional"
+EXISINTG: []
+
+Recently, it built and started the AFI Silver theatre in Silver Spring, Maryland near Washington, D.C.
+{'pos': [46, 53], 'id': 'Actor', 'name': 'theatre'}
+{'pos': [72, 80], 'id': 'Maryland-CountyLiberia', 'name': 'maryland'}
+GOLD = "entities_not_related"
+PREDICTED = "cityInState"
+EXISINTG: []
+
+He is very famous for his organ music.
+{'pos': [26, 31], 'id': 'Organ', 'name': 'organ'}
+{'pos': [32, 37], 'id': 'Music', 'name': 'music'}
+GOLD = "entities_not_related"
+PREDICTED = "outputsCreated-TypeType"
+EXISINTG: []
+
+The back cover contains a small summary of the book followed by the names of the author and illustator then a title labeled: "Books in this series:" followed by two pictures of the books in the series.
+{'pos': [110, 115], 'id': 'TitleDocument', 'name': 'title'}
+{'pos': [103, 107], 'id': 'List', 'name': 'then'}
+GOLD = "entities_not_related"
+PREDICTED = "coExtensional"
+EXISINTG: []
+
+In the American Civil War there was a similar story - "For the stimulating property to which both tea and coffee owe their chief value, there is unfortunately no substitute; the best we can do is to dilute the little stocks which still remain, and cheat the palate, if we cannot deceive the nerves."
+{'pos': [279, 286], 'id': 'Deceiving', 'name': 'deceive'}
+{'pos': [162, 172], 'id': 'Person', 'name': 'substitute'}
+GOLD = "entities_not_related"
+PREDICTED = "contraryFeelings"
+EXISINTG: []
+
+She also acted in several movies, including Kevin Smith's "Dogma", where she played God.
+{'pos': [77, 83], 'id': 'MakingMusicalSound', 'name': 'played'}
+{'pos': [9, 14], 'id': 'PurposefulAction', 'name': 'acted'}
+GOLD = "entities_not_related"
+PREDICTED = "agentTypePerformsWorkOfType"
+EXISINTG: []
+
+By the end of the 19th century a number of technologies that would later prove useful in the realization of practical computers had begun to appear: the punched card, Boolean algebra, the vacuum tube (thermionic valve) and the teleprinter.
+{'pos': [118, 127], 'id': 'Computer', 'name': 'computers'}
+{'pos': [212, 217], 'id': 'Valve', 'name': 'valve'}
+GOLD = "entities_not_related"
+PREDICTED = "typePrimaryFunction-deviceUsed"
+EXISINTG: []
+
+Today musicians working in IRCAM continue to provide many interesting new ideas in electronic music.
+{'pos': [16, 23], 'id': 'Workplace', 'name': 'working'}
+{'pos': [6, 11], 'id': 'Music', 'name': 'music'}
+GOLD = "entities_not_related"
+PREDICTED = "outputsCreated-TypeType"
+EXISINTG: []
+
+Euripides (c. 480–406 BC) was an Ancient Greek writer who wrote about 90 plays.
+{'pos': [58, 63], 'id': 'Writing', 'name': 'wrote'}
+{'pos': [47, 53], 'id': 'Author', 'name': 'writer'}
+GOLD = "entities_not_related"
+PREDICTED = "agentTypePerformsWorkOfType"
+EXISINTG: ['(agentTypePerformsWorkOfType Author Writing)']
+
+Both states of mind can spread over his life outside of class.
+{'pos': [40, 44], 'id': 'Enthusiasm', 'name': 'life'}
+{'pos': [15, 19], 'id': 'Mind', 'name': 'mind'}
+GOLD = "entities_not_related"
+PREDICTED = "relationAllExists-properParts"
+EXISINTG: []
+
+Slavic languages are spoken natively by 400 million people, and as second or third languages by many more people in countries as far apart as Germany and China.
+{'pos': [142, 149], 'id': 'Germany', 'name': 'germany'}
+{'pos': [154, 159], 'id': 'China-PeoplesRepublic', 'name': 'china'}
+GOLD = "entities_not_related"
+PREDICTED = "geographicalSubRegionsOfContinent"
+EXISINTG: []
+
+Most people who study the history of music believe that kings such as Charlemagne brought music from Rome to their kingdoms in France and Germany.
+{'pos': [101, 105], 'id': 'CityOfRomeItaly', 'name': 'rome'}
+{'pos': [37, 42], 'id': 'Music', 'name': 'music'}
+GOLD = "entities_not_related"
+PREDICTED = "outputsCreated-TypeType"
+EXISINTG: []
+
+He wrote two string quartets and a wind sextet: "Mládi" ("Youth").
+{'pos': [13, 19], 'id': 'StringInAStringedInstrument', 'name': 'string'}
+{'pos': [58, 63], 'id': 'HomoSapiens', 'name': 'youth'}
+GOLD = "entities_not_related"
+PREDICTED = "physicalPartTypeCount"
+EXISINTG: []
+
+They are usually tuned so that playing each string in order sounds like playing all the white notes on a piano in order.
+{'pos': [31, 38], 'id': 'MakingMusicalSound', 'name': 'playing'}
+{'pos': [60, 66], 'id': 'Sound', 'name': 'sounds'}
+GOLD = "entities_not_related"
+PREDICTED = "outputsCreated-TypeType"
+EXISINTG: []
+
+São Paulo is located in the south-east region of Brazil, with close to 248,000 square kilometers of area.
+{'pos': [49, 55], 'id': 'Brazil', 'name': 'brazil'}
+{'pos': [28, 33], 'id': 'South-Generally', 'name': 'south'}
+GOLD = "entities_not_related"
+PREDICTED = "oppositeDirection-Interval"
+EXISINTG: []
+
+The CD player uses these 1's and 0's and turn them into sound waves which are made louder into speakers or ear/headphones so you can listen to your music or sound recordings.
+{'pos': [148, 153], 'id': 'Music', 'name': 'music'}
+{'pos': [56, 67], 'id': 'Sound', 'name': 'sound waves'}
+GOLD = "entities_not_related"
+PREDICTED = "outputsCreated-TypeType"
+EXISINTG: []
+
+It was the exchange of goods and ideas from Europe, Africa, and Asia and goods and ideas from the Americas.
+{'pos': [52, 58], 'id': 'ContinentOfAfrica', 'name': 'africa'}
+{'pos': [44, 50], 'id': 'ContinentOfEurope', 'name': 'europe'}
+GOLD = "entities_not_related"
+PREDICTED = "geographicalSubRegionsOfContinent"
+EXISINTG: []
+
+There are also many big inscriptions from then.
+{'pos': [42, 46], 'id': 'List', 'name': 'then'}
+{'pos': [20, 23], 'id': 'Size', 'name': 'big'}
+GOLD = "entities_not_related"
+PREDICTED = "coExtensional"
+EXISINTG: []
+
+The woodwind, for example, need four of each instrument (four flutes, four oboes etc), and there are extra instruments like the bass clarinet and Wagner tubas.
+{'pos': [107, 118], 'id': 'MeasuringDevice', 'name': 'instruments'}
+{'pos': [45, 55], 'id': 'MeasuringDevice', 'name': 'instrument'}
+GOLD = "entities_not_related"
+PREDICTED = "typePrimaryFunction-deviceUsed"
+EXISINTG: []
+
+A male chicken is called a "rooster" or a "cock" (short for cockerel), a female chicken is called a "hen" and a young chicken is called a "chick".
+{'pos': [28, 35], 'id': 'Chicken', 'name': 'rooster'}
+{'pos': [73, 79], 'id': 'FemininePerson', 'name': 'female'}
+GOLD = "entities_not_related"
+PREDICTED = "physicalPartTypes"
+EXISINTG: []
+
+Armenia is a country in the Caucasus region of Europe.
+{'pos': [47, 53], 'id': 'ContinentOfEurope', 'name': 'europe'}
+{'pos': [0, 7], 'id': 'Armenia', 'name': 'armenia'}
+GOLD = "entities_not_related"
+PREDICTED = "geographicalSubRegionsOfContinent"
+EXISINTG: []
+
+Some of Radiohead's influences this time were: the post-punk band Magazine, the singer-songwriter Jeff Buckley, Morrissey's (former Smiths singer) "Vauxhall & I", and the music of R.E.M.
+{'pos': [61, 65], 'id': 'Meeting-SocialGathering', 'name': 'band'}
+{'pos': [171, 176], 'id': 'Music', 'name': 'music'}
+GOLD = "entities_not_related"
+PREDICTED = "outputsCreated-TypeType"
+EXISINTG: []
+
+It has three primary schools and one secondary school (Bydales School), a museum, and two train stations.
+{'pos': [21, 28], 'id': 'Teaching', 'name': 'schools'}
+{'pos': [90, 95], 'id': 'Train-TransportationDevice', 'name': 'train'}
+GOLD = "entities_not_related"
+PREDICTED = "relationExistsAll-associates"
+EXISINTG: []
+
+During the rule of Emperor Lebna Dengel, Ethiopia made its first good contact with a European country, Portugal.
+{'pos': [41, 49], 'id': 'Ethiopia', 'name': 'ethiopia'}
+{'pos': [85, 93], 'id': 'ContinentOfEurope', 'name': 'european'}
+GOLD = "entities_not_related"
+PREDICTED = "geographicalSubRegionsOfContinent"
+EXISINTG: []
+
+George Orson Welles (May 6, 1915 – October 10, 1985) was an American director of movies and the theatre, as well as an actor, screenwriter, broadcaster and producer.
+{'pos': [119, 124], 'id': 'PurposefulAction', 'name': 'actor'}
+{'pos': [96, 103], 'id': 'MovieShowingAtATheater', 'name': 'theatre'}
+GOLD = "entities_not_related"
+PREDICTED = "agentTypePerformsWorkOfType"
+EXISINTG: []
+
+The series then describes the adventures of Fry and the other workers as they go around the universe making deliveries.
+{'pos': [101, 107], 'id': 'IntrinsicStateChangeEvent', 'name': 'making'}
+{'pos': [11, 15], 'id': 'List', 'name': 'then'}
+GOLD = "entities_not_related"
+PREDICTED = "coExtensional"
+EXISINTG: []
+
+It appeared in the Gentleman's Magazine, published monthly in London since 1731.
+{'pos': [31, 39], 'id': 'MagazineCopy', 'name': 'magazine'}
+{'pos': [3, 11], 'id': 'Acting', 'name': 'appeared'}
+GOLD = "entities_not_related"
+PREDICTED = "agentTypePerformsWorkOfType"
+EXISINTG: []
+
+One American dollar is equal to about $7.80 in Hong Kong dollars, at the official bank exchange rate.
+{'pos': [44, 46], 'id': 'SocialBeing', 'name': 'in'}
+{'pos': [82, 86], 'id': 'Riverbank', 'name': 'bank'}
+GOLD = "entities_not_related"
+PREDICTED = "relationExistsAll-associates"
+EXISINTG: []
+
+A vector can be represented graphically with an arrow that has a tail and a head.
+{'pos': [59, 62], 'id': 'IntelligentAgent', 'name': 'has'}
+{'pos': [65, 69], 'id': 'Entourage', 'name': 'tail'}
+GOLD = "entities_not_related"
+PREDICTED = "relationExistsAll-associates"
+EXISINTG: []
+
+He became fascinated by Shakespeare and he wrote "Otello" to a libretto (words) by Arrigo Boito.
+{'pos': [24, 35], 'id': 'WilliamShakespeare', 'name': 'shakespeare'}
+{'pos': [43, 48], 'id': 'Writing', 'name': 'wrote'}
+GOLD = "entities_not_related"
+PREDICTED = "agentTypePerformsWorkOfType"
+EXISINTG: []
+
+Some canons have an accompaniment which is not part of the canon: an example is the very popular canon by Johann Pachelbel for string orchestra.
+{'pos': [127, 133], 'id': 'StringInAStringedInstrument', 'name': 'string'}
+{'pos': [47, 51], 'id': 'Artifact', 'name': 'part'}
+GOLD = "entities_not_related"
+PREDICTED = "agentTypePerformsWorkOfType"
+EXISINTG: []
+
+The first sociology department to be established in Britain was at the London School of Economics and Political Science in 1904.
+{'pos': [78, 84], 'id': 'SchoolInstitution', 'name': 'school'}
+{'pos': [10, 19], 'id': 'Sociology', 'name': 'sociology'}
+GOLD = "entities_not_related"
+PREDICTED = "typicalLocationTypeOfEventType"
+EXISINTG: []
+
+"Einstein on the Beach" is an opera written by the minimalist composer Philip Glass and theater director and designer Robert Wilson.
+{'pos': [78, 83], 'id': 'DrinkingGlass', 'name': 'glass'}
+{'pos': [88, 95], 'id': 'MovieShowingAtATheater', 'name': 'theater'}
+GOLD = "entities_not_related"
+PREDICTED = "typePrimaryFunction-eventOccursAt"
+EXISINTG: []
+
+For example, a person applying to be admitted to a PhD degree in Theater would normally have to have a Master's degree such as a Master of Arts (MA) degree in Theater, English Literature, or a related area.
+{'pos': [65, 72], 'id': 'Actor', 'name': 'theater'}
+{'pos': [139, 143], 'id': 'ArtObject', 'name': 'arts'}
+GOLD = "entities_not_related"
+PREDICTED = "typePrimaryFunction-eventOccursAt"
+EXISINTG: []
+
+See The Maryland Department of the Environment's page for a discussion on why shrimp, crab, and lobster are not categorized as "shellfish."
+{'pos': [8, 16], 'id': 'Maryland-State', 'name': 'maryland'}
+{'pos': [96, 103], 'id': 'ClawedLobster', 'name': 'lobster'}
+GOLD = "entities_not_related"
+PREDICTED = "populationOfRegion"
+EXISINTG: []
+
+Until then, the Holy Mass and the Bible were in Latin.
+{'pos': [6, 10], 'id': 'List', 'name': 'then'}
+{'pos': [21, 25], 'id': 'Mass', 'name': 'mass'}
+GOLD = "entities_not_related"
+PREDICTED = "coExtensional"
+EXISINTG: []
+
+By using a glaze, the surface becomes both glossy, decorative and water-tight.
+{'pos': [11, 16], 'id': 'FillingProcess', 'name': 'glaze'}
+{'pos': [66, 71], 'id': 'Water', 'name': 'water'}
+GOLD = "entities_not_related"
+PREDICTED = "mainConstituent-TypeType"
+EXISINTG: []
+
+In each game the player would play the role of a hero who must free his country from either from a foreign invader or an evil government within his own country.
+{'pos': [121, 125], 'id': 'Badness-Moral', 'name': 'evil'}
+{'pos': [17, 21], 'id': 'MovieShowing', 'name': 'play'}
+GOLD = "entities_not_related"
+PREDICTED = "outputsCreated-TypeType"
+EXISINTG: []
+
+Dyke is used less often and is sometimes used to describe lesbians who are more masculine (act or dress more like men.)
+{'pos': [80, 89], 'id': 'MasculinePerson', 'name': 'masculine'}
+{'pos': [91, 94], 'id': 'Acting', 'name': 'act'}
+GOLD = "entities_not_related"
+PREDICTED = "agentTypePerformsWorkOfType"
+EXISINTG: []
+
+Salamanders look like lizards, with four legs and a tail.
+{'pos': [41, 45], 'id': 'Leg', 'name': 'legs'}
+{'pos': [52, 56], 'id': 'Tail-BodyPart', 'name': 'tail'}
+GOLD = "entities_not_related"
+PREDICTED = "properPhysicalPartTypes"
+EXISINTG: []
+
+While she was still at school she trained with the composer John Tavener.
+{'pos': [34, 41], 'id': 'Train-TransportationDevice', 'name': 'trained'}
+{'pos': [23, 29], 'id': 'SchoolBuilding', 'name': 'school'}
+GOLD = "entities_not_related"
+PREDICTED = "cityInState"
+EXISINTG: []
+
+"Final Fantasy XII" has six characters you can play as: Vaan, an orphan who wants to be a sky pirate; Ashe, a princess; Basch, who is charged with killing the King; Balthier, a sky pirate who has an airship called the "Strahl"; Fran, Balthier's friend and Penelo, who has been Vaan's friend since they were little children.
+{'pos': [90, 93], 'id': 'PieceOfSky', 'name': 'sky'}
+{'pos': [147, 154], 'id': 'PurposefulAction', 'name': 'killing'}
+GOLD = "entities_not_related"
+PREDICTED = "relationAllExists-properSubEvents"
+EXISINTG: []
+
+They have been used by humans in many different ways, for transportation, work, and food.
+{'pos': [74, 78], 'id': 'Workplace', 'name': 'work'}
+{'pos': [23, 29], 'id': 'Person', 'name': 'humans'}
+GOLD = "entities_not_related"
+PREDICTED = "typePrimaryFunction-eventOccursAt"
+EXISINTG: []
+
+Approximately 20% by weight of hot dogs is usually non-meat ingredients including water, sugar, and spices.
+{'pos': [55, 59], 'id': 'Meat', 'name': 'meat'}
+{'pos': [82, 87], 'id': 'Water-Ingestible', 'name': 'water'}
+GOLD = "entities_not_related"
+PREDICTED = "mainConstituent-TypeType"
+EXISINTG: []
+
+Vasari, who was Leonardo's first biographer (a person who writes about the life of another person), thought the painting was of a person named Lisa Gherardini and he was correct.
+{'pos': [58, 64], 'id': 'Writing', 'name': 'writes'}
+{'pos': [112, 120], 'id': 'Painting-ArtForm', 'name': 'painting'}
+GOLD = "entities_not_related"
+PREDICTED = "agentTypePerformsWorkOfType"
+EXISINTG: []
+
+She grows to love her stepfather more than loving a father, and is jealous when she finds that Sergay loved a woman called Rena Searrs from a photo album.
+{'pos': [13, 17], 'id': 'Love', 'name': 'love'}
+{'pos': [22, 32], 'id': 'Person', 'name': 'stepfather'}
+GOLD = "entities_not_related"
+PREDICTED = "contraryFeelings"
+EXISINTG: []
+
+The Venus fly-trap is a carnivorous plant.
+{'pos': [36, 41], 'id': 'ManufacturingFacility', 'name': 'plant'}
+{'pos': [10, 13], 'id': 'Airplane', 'name': 'fly'}
+GOLD = "entities_not_related"
+PREDICTED = "relationAllExists-objectTakenCareOf"
+EXISINTG: []
+
+She went to school at New York's Columbia Grammar & Preparatory School and the Professional Children's School.
+{'pos': [12, 18], 'id': 'Teaching', 'name': 'school'}
+{'pos': [22, 30], 'id': 'NewYork-State', 'name': 'new york'}
+GOLD = "entities_not_related"
+PREDICTED = "cityInState"
+EXISINTG: []
+
+Le Havre is a city in the north west of France (Normandy).
+{'pos': [26, 31], 'id': 'North-Generally', 'name': 'north'}
+{'pos': [32, 36], 'id': 'West-Generally', 'name': 'west'}
+GOLD = "entities_not_related"
+PREDICTED = "oppositeDirection-Interval"
+EXISINTG: []
+
+Signs and symptoms that a person may have chronic (longer-term) hepatitis C include fatigue, marked weight loss, flu-like symptoms, muscle pain, joint pain, intermittent low-grade fevers, itching, sleep disturbances, abdominal pain (especially in the right upper quadrant), appetite changes, nausea, diarrhea, dyspepsia, cognitive changes, depression, headaches, and mood swings.
+{'pos': [188, 195], 'id': 'IndividualAgent', 'name': 'itching'}
+{'pos': [139, 143], 'id': 'Pain-PhysiologicalCondition', 'name': 'pain'}
+GOLD = "entities_not_related"
+PREDICTED = "properPhysicalPartTypes"
+EXISINTG: []
+
+A ship floats because although it is made of steel which is more dense than water, it encloses a volume of air and the resulting shape has an average density less than that of the water.
+{'pos': [150, 157], 'id': 'Density', 'name': 'density'}
+{'pos': [76, 81], 'id': 'Water', 'name': 'water'}
+GOLD = "entities_not_related"
+PREDICTED = "mainConstituent-TypeType"
+EXISINTG: []
+
+Quarks also have three "colors": red, green, and blue.
+{'pos': [33, 36], 'id': 'RedColor', 'name': 'red'}
+{'pos': [38, 43], 'id': 'GreenColor', 'name': 'green'}
+GOLD = "entities_not_related"
+PREDICTED = "colorOfType"
+EXISINTG: []
+
+A suspended monorail connects the terminal building with the InterCity and ICE train station (High speed and extremely high speed trains).
+{'pos': [21, 29], 'id': 'ConnectingTogether', 'name': 'connects'}
+{'pos': [130, 136], 'id': 'Entourage', 'name': 'trains'}
+GOLD = "entities_not_related"
+PREDICTED = "relationExistsAll-associates"
+EXISINTG: []
+
+They play 82 games per year, and then 16 teams make the playoffs.
+{'pos': [5, 9], 'id': 'PlayPerformance', 'name': 'play'}
+{'pos': [33, 37], 'id': 'List', 'name': 'then'}
+GOLD = "entities_not_related"
+PREDICTED = "coExtensional"
+EXISINTG: []
+
+For example the Roman Empire was governed from Rome.
+{'pos': [16, 21], 'id': 'CityOfRomeItaly', 'name': 'roman'}
+{'pos': [47, 51], 'id': 'CityOfRomeItaly', 'name': 'rome'}
+GOLD = "entities_not_related"
+PREDICTED = "countryOfCity"
+EXISINTG: []
+
+Many forests are being cut down to for houses to built because of overpopulation.This cutting down of forests is called deforestation and it is causing damage to the natural habitat of animals.
+{'pos': [152, 158], 'id': 'DamageOutcome', 'name': 'damage'}
+{'pos': [23, 26], 'id': 'Trimming', 'name': 'cut'}
+GOLD = "entities_not_related"
+PREDICTED = "pathTypeConveysType"
+EXISINTG: []
+
+A person is in shock when blood is not sufficient to bring oxygen to the brain.
+{'pos': [59, 65], 'id': 'Oxygen', 'name': 'oxygen'}
+{'pos': [26, 31], 'id': 'Blood', 'name': 'blood'}
+GOLD = "entities_not_related"
+PREDICTED = "atomicComposition"
+EXISINTG: []
+
+Traditional dressings in southern Europe are vinaigrettes, while mayonnaise is predominant in eastern European countries and Russia.
+{'pos': [34, 40], 'id': 'ContinentOfEurope', 'name': 'europe'}
+{'pos': [125, 131], 'id': 'Russia', 'name': 'russia'}
+GOLD = "entities_not_related"
+PREDICTED = "geographicalSubRegionsOfContinent"
+EXISINTG: []
+
+The electromagnetic (EM) spectrum is the range of all possible electromagnetic radiation.
+{'pos': [21, 23], 'id': 'Distance', 'name': 'em'}
+{'pos': [63, 88], 'id': 'AcceleratingChargesRadiate', 'name': 'electromagnetic radiation'}
+GOLD = "entities_not_related"
+PREDICTED = "typePrimaryFunction-deviceUsed"
+EXISINTG: []
+
+He was born in Minnesota and grew up in California, but he now lives in England and is a British citizen.
+{'pos': [15, 24], 'id': 'Minnesota-State', 'name': 'minnesota'}
+{'pos': [34, 36], 'id': 'Up-Generally', 'name': 'up'}
+GOLD = "entities_not_related"
+PREDICTED = "bordersOn"
+EXISINTG: []
+
+Many of them played instruments such as the lute or fiddle.
+{'pos': [13, 19], 'id': 'EmittingSound', 'name': 'played'}
+{'pos': [20, 31], 'id': 'MeasuringDevice', 'name': 'instruments'}
+GOLD = "entities_not_related"
+PREDICTED = "outputsCreated-TypeType"
+EXISINTG: []
+
+A swimming pool is a tank or large basin that is filled with water and intended for recreational or competitive swimming or diving.
+{'pos': [2, 15], 'id': 'SwimmingPool', 'name': 'swimming pool'}
+{'pos': [61, 66], 'id': 'Water-Ingestible', 'name': 'water'}
+GOLD = "entities_not_related"
+PREDICTED = "mainConstituent-TypeType"
+EXISINTG: []
+
+Thrash metal is a type of heavy metal music, one of the extreme metal types of music, that is characterised by its high speed and aggression.
+{'pos': [26, 31], 'id': 'Mass', 'name': 'heavy'}
+{'pos': [38, 43], 'id': 'Music', 'name': 'music'}
+GOLD = "entities_not_related"
+PREDICTED = "outputsCreated-TypeType"
+EXISINTG: []
+
+He had written the words for "The Magic Flute" and asked Mozart to write the music.
+{'pos': [67, 72], 'id': 'Writing', 'name': 'write'}
+{'pos': [77, 82], 'id': 'Music', 'name': 'music'}
+GOLD = "entities_not_related"
+PREDICTED = "outputsCreated-TypeType"
+EXISINTG: []
+
+They are mostly needs for the mind.
+{'pos': [30, 34], 'id': 'Mind', 'name': 'mind'}
+{'pos': [16, 21], 'id': 'Thing', 'name': 'needs'}
+GOLD = "entities_not_related"
+PREDICTED = "coExtensional"
+EXISINTG: []
+
+Donkeys would sometimes be killed and offered to him, but gifts of fish, flowers, fruit and vegetables were also very common.
+{'pos': [0, 7], 'id': 'Donkey', 'name': 'donkeys'}
+{'pos': [67, 71], 'id': 'Fish', 'name': 'fish'}
+GOLD = "entities_not_related"
+PREDICTED = "typicalIngredientTypes"
+EXISINTG: []
+
+Some had been killed with a gun.
+{'pos': [14, 20], 'id': 'PurposefulAction', 'name': 'killed'}
+{'pos': [28, 31], 'id': 'ShootingAGun', 'name': 'gun'}
+GOLD = "entities_not_related"
+PREDICTED = "relationAllExists-properSubEvents"
+EXISINTG: []
+
+Then they give Tamino a portrait of Princess Pamina.
+{'pos': [0, 4], 'id': 'List', 'name': 'then'}
+{'pos': [10, 14], 'id': 'GivingSomething', 'name': 'give'}
+GOLD = "entities_not_related"
+PREDICTED = "coExtensional"
+EXISINTG: []
+
+AAC is a file format for storing music or other sounds.
+{'pos': [25, 32], 'id': 'RetailStore', 'name': 'storing'}
+{'pos': [33, 38], 'id': 'Music', 'name': 'music'}
+GOLD = "entities_not_related"
+PREDICTED = "outputsCreated-TypeType"
+EXISINTG: []
+
+North Rhine-Westphalia has the closest network of motorways in Europe.
+{'pos': [63, 69], 'id': 'ContinentOfEurope', 'name': 'europe'}
+{'pos': [50, 59], 'id': 'Roadway', 'name': 'motorways'}
+GOLD = "entities_not_related"
+PREDICTED = "geographicalSubRegionsOfContinent"
+EXISINTG: []
+
+In addition, those Germanic people who remained in Scandinavia are referred to as North Germanic.
+{'pos': [82, 87], 'id': 'North-Generally', 'name': 'north'}
+{'pos': [51, 62], 'id': 'Scandinavia', 'name': 'scandinavia'}
+GOLD = "entities_not_related"
+PREDICTED = "geographicalSubRegionsOfContinent"
+EXISINTG: []
+
+The mate is then shaken very gently with a side-to-side motion.
+{'pos': [12, 16], 'id': 'List', 'name': 'then'}
+{'pos': [17, 23], 'id': 'MovementEvent', 'name': 'shaken'}
+GOLD = "entities_not_related"
+PREDICTED = "coExtensional"
+EXISINTG: []
+
+Twenty-three people were killed, while almost a thousand people were injured.
+{'pos': [69, 76], 'id': 'Injured', 'name': 'injured'}
+{'pos': [25, 31], 'id': 'PurposefulAction', 'name': 'killed'}
+GOLD = "entities_not_related"
+PREDICTED = "relationAllExists-properSubEvents"
+EXISINTG: []
+
+For instance, liquid water is not a mineral, but ice is.
+{'pos': [21, 26], 'id': 'BodyOfWater', 'name': 'water'}
+{'pos': [49, 52], 'id': 'Water', 'name': 'ice'}
+GOLD = "entities_not_related"
+PREDICTED = "mainConstituent-TypeType"
+EXISINTG: []
+
+Logical implication (also known as implies, or If... then) is a logical operation.
+{'pos': [53, 57], 'id': 'List', 'name': 'then'}
+{'pos': [26, 31], 'id': 'Person', 'name': 'known'}
+GOLD = "entities_not_related"
+PREDICTED = "coExtensional"
+EXISINTG: []
+
+They protect the eye from small things like dust.
+{'pos': [39, 43], 'id': 'Like', 'name': 'like'}
+{'pos': [17, 20], 'id': 'Eye', 'name': 'eye'}
+GOLD = "entities_not_related"
+PREDICTED = "bodyPartsUsed-TypeType"
+EXISINTG: []
+
+People do not completely agree which countries are in Latin America, but normally, it is the parts where Spanish and Portuguese are spoken (South America, Central America, and Mexico).
+{'pos': [105, 112], 'id': 'Spain', 'name': 'spanish'}
+{'pos': [176, 182], 'id': 'Mexico', 'name': 'mexico'}
+GOLD = "entities_not_related"
+PREDICTED = "geographicalSubRegionsOfContinent"
+EXISINTG: []
+
+Berg liked to listen to all kinds of music.
+{'pos': [5, 10], 'id': 'Like', 'name': 'liked'}
+{'pos': [37, 42], 'id': 'Music', 'name': 'music'}
+GOLD = "entities_not_related"
+PREDICTED = "outputsCreated-TypeType"
+EXISINTG: []
+
+Both of the two main stars are rather similar to the Sun.
+{'pos': [16, 20], 'id': 'Ocean', 'name': 'main'}
+{'pos': [49, 56], 'id': 'TheSun', 'name': 'the sun'}
+GOLD = "entities_not_related"
+PREDICTED = "orbits"
+EXISINTG: []
+
+Japan is east of China, Saudi Arabia is east of Egypt, and Sweden is east of Norway.
+{'pos': [0, 5], 'id': 'Japan', 'name': 'japan'}
+{'pos': [77, 83], 'id': 'Norway', 'name': 'norway'}
+GOLD = "entities_not_related"
+PREDICTED = "geographicalSubRegionsOfContinent"
+EXISINTG: []
+
+The strait is part of the South China Sea and attaches to East China Sea to the northeast.
+{'pos': [32, 37], 'id': 'China-PeoplesRepublic', 'name': 'china'}
+{'pos': [58, 62], 'id': 'East-Generally', 'name': 'east'}
+GOLD = "entities_not_related"
+PREDICTED = "oppositeDirection-Interval"
+EXISINTG: []
+
+Police said that Lindy Chamberlain had killed the baby and had lied.
+{'pos': [0, 6], 'id': 'PoliceOrganization', 'name': 'police'}
+{'pos': [39, 45], 'id': 'Dying', 'name': 'killed'}
+GOLD = "entities_not_related"
+PREDICTED = "relationAllExists-properSubEvents"
+EXISINTG: []
+
+Accounts attribute the practice to the ancient Assyrians, who were said to flay the skin from a captured enemy or rebellious ruler and nail it to the wall of his city, as warning to all who would defy their power.
+{'pos': [171, 178], 'id': 'Warning', 'name': 'warning'}
+{'pos': [135, 139], 'id': 'Nail-AnimalBodyPart', 'name': 'nail'}
+GOLD = "entities_not_related"
+PREDICTED = "typePrimaryFunction-deviceUsed"
+EXISINTG: []
+
+Most German Americans are completely integrated into the mainstream American society and the language is being taught less and less in schools because of diminishing demand.
+{'pos': [12, 20], 'id': 'UnitedStatesOfAmerica', 'name': 'american'}
+{'pos': [135, 142], 'id': 'SchoolInstitution', 'name': 'schools'}
+GOLD = "entities_not_related"
+PREDICTED = "countryOfCity"
+EXISINTG: []
+
+He appeared in the television programme, "Coronation Street" and in the London and Broadway versions of "Oliver!".
+{'pos': [83, 91], 'id': 'BroadwayTheAvenue', 'name': 'broadway'}
+{'pos': [3, 11], 'id': 'Acting', 'name': 'appeared'}
+GOLD = "entities_not_related"
+PREDICTED = "agentTypePerformsWorkOfType"
+EXISINTG: []
+
+He wrote almost every kind of music: symphonies, operas, solo concertos, chamber music, especially string quartets and string quintets, and the piano sonata.
+{'pos': [144, 149], 'id': 'Piano-Acoustic', 'name': 'piano'}
+{'pos': [30, 35], 'id': 'Music', 'name': 'music'}
+GOLD = "entities_not_related"
+PREDICTED = "outputsCreated-TypeType"
+EXISINTG: []
+
+Frank Griswold was the bishop of Chicago from 1987 until he became presiding bishop in 1997.
+{'pos': [33, 40], 'id': 'CityOfChicagoIL', 'name': 'chicago'}
+{'pos': [67, 76], 'id': 'Presiding', 'name': 'presiding'}
+GOLD = "entities_not_related"
+PREDICTED = "countryOfCity"
+EXISINTG: []
+
+When this occurs, the bone breaks and fragments of the bone will penetrate through the internal soft tissue of the body and break through the skin from the inside.
+{'pos': [115, 119], 'id': 'WholeBody', 'name': 'body'}
+{'pos': [27, 32], 'id': 'ShatteringEvent', 'name': 'break'}
+GOLD = "entities_not_related"
+PREDICTED = "properPhysicalPartTypes"
+EXISINTG: []
+
+It shares a border with Hungary and Serbia to the west, Ukraine and the Republic of Moldova to the northeast, and Bulgaria to the south.
+{'pos': [24, 31], 'id': 'Hungary', 'name': 'hungary'}
+{'pos': [84, 91], 'id': 'Moldova', 'name': 'moldova'}
+GOLD = "entities_not_related"
+PREDICTED = "geographicalSubRegionsOfContinent"
+EXISINTG: []
+
+Although on the route of the current Piccadilly Line a short distance north of the present Park Royal station, it was never served by Piccadilly Line trains.
+{'pos': [16, 21], 'id': 'Roadway', 'name': 'route'}
+{'pos': [150, 156], 'id': 'Train-TransportationDevice', 'name': 'trains'}
+GOLD = "entities_not_related"
+PREDICTED = "relationExistsAll-associates"
+EXISINTG: []
+
+This substance is then put into the bloodstream.
+{'pos': [18, 22], 'id': 'List', 'name': 'then'}
+{'pos': [23, 26], 'id': 'PuttingSomethingSomewhere', 'name': 'put'}
+GOLD = "entities_not_related"
+PREDICTED = "coExtensional"
+EXISINTG: []
+
+blessthefall is an U.S post-hardcore band from Phoenix, Arizona.
+{'pos': [56, 63], 'id': 'Arizona-State', 'name': 'arizona'}
+{'pos': [47, 54], 'id': 'CityOfPhoenixAZ', 'name': 'phoenix'}
+GOLD = "entities_not_related"
+PREDICTED = "bordersOn"
+EXISINTG: []
+
+He was born in the Greek colony of Patara, in Asia Minor.
+{'pos': [46, 50], 'id': 'ContinentOfAsia', 'name': 'asia'}
+{'pos': [19, 24], 'id': 'Greece', 'name': 'greek'}
+GOLD = "entities_not_related"
+PREDICTED = "geographicalSubRegionsOfContinent"
+EXISINTG: []
+
+The West Edmonton Mall (WEM) is the largest shopping center in North America.
+{'pos': [44, 52], 'id': 'Shopping', 'name': 'shopping'}
+{'pos': [18, 22], 'id': 'ConstructionArtifact', 'name': 'mall'}
+GOLD = "entities_not_related"
+PREDICTED = "countryOfCity"
+EXISINTG: []
+
+His music for instruments was very successful.
+{'pos': [4, 9], 'id': 'Music', 'name': 'music'}
+{'pos': [14, 25], 'id': 'MeasuringDevice', 'name': 'instruments'}
+GOLD = "entities_not_related"
+PREDICTED = "outputsCreated-TypeType"
+EXISINTG: []
+
+Poitiers is a town on the Clain River in west central France.
+{'pos': [54, 60], 'id': 'France', 'name': 'france'}
+{'pos': [41, 45], 'id': 'West-Generally', 'name': 'west'}
+GOLD = "entities_not_related"
+PREDICTED = "oppositeDirection-Interval"
+EXISINTG: []
+
+Water Avens are a flowering plant.
+{'pos': [28, 33], 'id': 'Plant', 'name': 'plant'}
+{'pos': [0, 5], 'id': 'Water-Ingestible', 'name': 'water'}
+GOLD = "entities_not_related"
+PREDICTED = "relationAllExists-objectTakenCareOf"
+EXISINTG: []
+
+These persons then enter into the canon, or list, of saints.
+{'pos': [14, 18], 'id': 'List', 'name': 'then'}
+{'pos': [53, 59], 'id': 'Person', 'name': 'saints'}
+GOLD = "entities_not_related"
+PREDICTED = "coExtensional"
+EXISINTG: []
+
+He also wrote larger works like symphonies and concertos and chamber music.
+{'pos': [21, 26], 'id': 'WorkingEvent', 'name': 'works'}
+{'pos': [69, 74], 'id': 'Music', 'name': 'music'}
+GOLD = "entities_not_related"
+PREDICTED = "outputsCreated-TypeType"
+EXISINTG: []
+
+The mistake was realized shortly after, but by then some anthrax spores were released.
+{'pos': [57, 64], 'id': 'Anthrax-Bacterium', 'name': 'anthrax'}
+{'pos': [47, 51], 'id': 'List', 'name': 'then'}
+GOLD = "entities_not_related"
+PREDICTED = "coExtensional"
+EXISINTG: []
+
+It is about 20 miles (30 km) south of downtown Los Angeles.
+{'pos': [47, 58], 'id': 'CityOfLosAngelesCA', 'name': 'los angeles'}2021-06-13 15:46:40,874 - root - INFO - Test set results:
+2021-06-13 15:46:40,874 - root - INFO - Micro precision: 0.9404
+2021-06-13 15:46:40,875 - root - INFO - Micro recall: 0.9404
+2021-06-13 15:46:40,883 - root - INFO - Micro F1: 0.9404
+
+{'pos': [29, 34], 'id': 'South-Generally', 'name': 'south'}
+GOLD = "entities_not_related"
+PREDICTED = "bordersOn"
+EXISINTG: []
+
+The Third Servile War, also called the Gladiator War and The War of Spartacus by Plutarch, was the last of several unsuccessful slave rebellions against the Roman Republic.
+{'pos': [18, 21], 'id': 'War', 'name': 'war'}
+{'pos': [10, 17], 'id': 'ServingSomeone-HelpingAnAgent', 'name': 'servile'}
+GOLD = "entities_not_related"
+PREDICTED = "agentTypePerformsWorkOfType"
+EXISINTG: []
+
+The two swords were always carried together: the wakizashi finished off the work of the katana sword.
+{'pos': [27, 34], 'id': 'Conveying-Generic', 'name': 'carried'}
+{'pos': [8, 13], 'id': 'Sword', 'name': 'sword'}
+GOLD = "entities_not_related"
+PREDICTED = "physicalPartTypes"
+EXISINTG: []
+
+Then King Henry VIII dies.
+{'pos': [0, 4], 'id': 'List', 'name': 'then'}
+{'pos': [21, 25], 'id': 'Die-TheCube', 'name': 'dies'}
+GOLD = "entities_not_related"
+PREDICTED = "coExtensional"
+EXISINTG: []
+
+It is therefore much "cheaper" to simply read the data from the cache.
+{'pos': [64, 69], 'id': 'StoringSomething', 'name': 'cache'}
+{'pos': [41, 45], 'id': 'Reading', 'name': 'read'}
+GOLD = "entities_not_related"
+PREDICTED = "typePrimaryFunction-ibtUsed"
+EXISINTG: []
+
+He then set up an Ital food grocery shop in London.
+{'pos': [3, 7], 'id': 'List', 'name': 'then'}
+{'pos': [36, 40], 'id': 'RetailStoreSpace', 'name': 'shop'}
+GOLD = "entities_not_related"
+PREDICTED = "coExtensional"
+EXISINTG: []
+
+A telescope or strong binoculars will show Neptune as a small blue dot, similar in appearance to Uranus; the blue color comes from the methane in its atmosphere.
+{'pos': [2, 11], 'id': 'Telescope', 'name': 'telescope'}
+{'pos': [150, 160], 'id': 'Atmosphere', 'name': 'atmosphere'}
+GOLD = "entities_not_related"
+PREDICTED = "mainConstituent-TypeType"
+EXISINTG: []
+
+Then Sartre began working as a teacher again.
+{'pos': [0, 4], 'id': 'List', 'name': 'then'}
+{'pos': [31, 38], 'id': 'Teacher', 'name': 'teacher'}
+GOLD = "entities_not_related"
+PREDICTED = "coExtensional"
+EXISINTG: []
+
+On 14 March 1984, Adams was seriously wounded in an assassination attempt when several Ulster Freedom Fighters (UFF) gunmen fired about twenty shots into the car in which he was travelling.
+{'pos': [38, 45], 'id': 'IncurringAnInjury', 'name': 'wounded'}
+{'pos': [158, 161], 'id': 'Automobile', 'name': 'car'}
+GOLD = "entities_not_related"
+PREDICTED = "relationAllExists-properSubEvents"
+EXISINTG: []
+
+He then went to Girondins Bordeaux (1989-1996).
+{'pos': [3, 7], 'id': 'List', 'name': 'then'}
+{'pos': [8, 12], 'id': 'Translocation', 'name': 'went'}
+GOLD = "entities_not_related"
+PREDICTED = "coExtensional"
+EXISINTG: []
+
+Andasol 1 will have a generating capacity of 50 megawatts and liquid salt heat storage will allow for electricity to be generated for seven hours after the sun has gone down.
+{'pos': [22, 32], 'id': 'BirthEvent', 'name': 'generating'}
+{'pos': [152, 159], 'id': 'TheSun', 'name': 'the sun'}
+GOLD = "entities_not_related"
+PREDICTED = "orbits"
+EXISINTG: []
+
+Majuro is located at 7°7'30" North, 171°4' East (7.125, 171.0667).
+{'pos': [43, 47], 'id': 'East-Generally', 'name': 'east'}
+{'pos': [29, 34], 'id': 'North-Generally', 'name': 'north'}
+GOLD = "entities_not_related"
+PREDICTED = "oppositeDirection-Interval"
+EXISINTG: []
+
+Ayn Rand (February 2, 1905 – March 6, 1982) was a Russian-born American writer, screenwriter, playwright and philosopher who published several popular books in the United States in the mid-1900s, such as "We the Living", "Anthem", "Atlas Shrugged" and "The Fountainhead."
+{'pos': [109, 120], 'id': 'Philosopher', 'name': 'philosopher'}
+{'pos': [151, 156], 'id': 'Booking-MakingAReservation', 'name': 'books'}
+GOLD = "entities_not_related"
+PREDICTED = "agentTypePerformsWorkOfType"
+EXISINTG: []
+
+Prosoma: This is the scorpion’s head, the carapace, the eyes, the mouthparts, the claws -or pedipalps-, and 4 legs.
+{'pos': [110, 114], 'id': 'Leg', 'name': 'legs'}
+{'pos': [82, 87], 'id': 'Claw', 'name': 'claws'}
+GOLD = "entities_not_related"
+PREDICTED = "properPhysicalPartTypes"
+EXISINTG: []
+
+A subtype, called "H5N1", killed six people in Hong Kong in 1997, but didn't kill again until 2003, this time in China.
+{'pos': [26, 32], 'id': 'PurposefulAction', 'name': 'killed'}
+{'pos': [113, 118], 'id': 'China-PeoplesRepublic', 'name': 'china'}
+GOLD = "entities_not_related"
+PREDICTED = "relationAllExists-properSubEvents"
+EXISINTG: []
+
+Long after the usage of this term had been established, physicists realized that electrons actually flow to a negative potential (pole) and so-called "holes" flow to the opposite one.
+{'pos': [0, 4], 'id': 'Length', 'name': 'long'}
+{'pos': [81, 90], 'id': 'Electron', 'name': 'electrons'}
+GOLD = "entities_not_related"
+PREDICTED = "typePrimaryFunction-deviceUsed"
+EXISINTG: []
+
+Corpus Christi, Texas is a city in the United States.
+{'pos': [16, 21], 'id': 'Texas-State', 'name': 'texas'}
+{'pos': [35, 52], 'id': 'UnitedStatesOfAmerica', 'name': 'the united states'}
+GOLD = "entities_not_related"
+PREDICTED = "cityInState"
+EXISINTG: []
+
+The Proms are concerts which are part of a big music festival.
+{'pos': [33, 37], 'id': 'PartiallyTangible', 'name': 'part'}
+{'pos': [47, 52], 'id': 'Music', 'name': 'music'}
+GOLD = "entities_not_related"
+PREDICTED = "outputsCreated-TypeType"
+EXISINTG: []
+
+2021-06-13 15:46:40,887 - wandb.sdk.internal.internal - INFO - Internal process exited
+Error in atexit._run_exitfuncs:
+Traceback (most recent call last):
+  File "C:\Users\danil\anaconda3\envs\qrg\lib\site-packages\colorama\ansitowin32.py", line 59, in closed
+    return stream.closed
+ValueError: underlying buffer has been detached

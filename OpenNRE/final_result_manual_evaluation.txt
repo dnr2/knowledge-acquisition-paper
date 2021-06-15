@@ -1,0 +1,970 @@
+(qrg) C:\Users\danil\Documents\Northwestern\Research\software\OpenNRE>python example/train_supervised_cnn.py --metric micro_f1 --batch_size 160 --lr 0.1 --weight_decay 1e-5 --max_epoch 70 --max_length 250 --seed 42 --encoder pcnn --train_file C:\Users\danil\Documents\Northwestern\QRG\Rep\ea\v8\question-answering\ke\preprocessing\distant_supervision_matches_open_nre_train.txt --val_file C:\Users\danil\Documents\Northwestern\QRG\Rep\ea\v8\question-answering\ke\preprocessing\distant_supervision_matches_open_nre_dev.txt --test_file C:\Users\danil\Documents\Northwestern\QRG\Rep\ea\v8\question-answering\ke\preprocessing\distant_supervision_matches_open_nre_final_test.txt --rel2id_file C:\Users\danil\Documents\Northwestern\QRG\Rep\ea\v8\question-answering\ke\preprocessing\distant_supervision_matches_open_nre_rel_2_id.jsonl --ckpt supervised_cnn_v3 --onlytest
+usage: train_supervised_cnn.py [-h] [--ckpt CKPT] [--only_test]
+                               [--encoder {pcnn,cnn}]
+                               [--metric {micro_f1,acc}]
+                               [--dataset {none,semeval,wiki80,tacred}]
+                               [--train_file TRAIN_FILE] [--val_file VAL_FILE]
+                               [--test_file TEST_FILE]
+                               [--rel2id_file REL2ID_FILE]
+                               [--batch_size BATCH_SIZE] [--lr LR]
+                               [--weight_decay WEIGHT_DECAY]
+                               [--max_length MAX_LENGTH]
+                               [--max_epoch MAX_EPOCH] [--seed SEED]
+train_supervised_cnn.py: error: unrecognized arguments: --onlytest
+2021-06-13 09:41:03,382 - wandb.sdk.internal.internal - INFO - Internal process exited
+Error in atexit._run_exitfuncs:
+Traceback (most recent call last):
+  File "C:\Users\danil\anaconda3\envs\qrg\lib\site-packages\colorama\ansitowin32.py", line 59, in closed
+    return stream.closed
+ValueError: underlying buffer has been detached
+
+(qrg) C:\Users\danil\Documents\Northwestern\Research\software\OpenNRE>
+(qrg) C:\Users\danil\Documents\Northwestern\Research\software\OpenNRE>
+(qrg) C:\Users\danil\Documents\Northwestern\Research\software\OpenNRE>
+(qrg) C:\Users\danil\Documents\Northwestern\Research\software\OpenNRE>
+(qrg) C:\Users\danil\Documents\Northwestern\Research\software\OpenNRE>
+(qrg) C:\Users\danil\Documents\Northwestern\Research\software\OpenNRE>
+(qrg) C:\Users\danil\Documents\Northwestern\Research\software\OpenNRE>
+(qrg) C:\Users\danil\Documents\Northwestern\Research\software\OpenNRE>python example/train_supervised_cnn.py --metric micro_f1 --batch_size 160 --lr 0.1 --weight_decay 1e-5 --max_epoch 70 --max_length 250 --seed 42 --encoder pcnn --train_file C:\Users\danil\Documents\Northwestern\QRG\Rep\ea\v8\question-answering\ke\preprocessing\distant_supervision_matches_open_nre_train.txt --val_file C:\Users\danil\Documents\Northwestern\QRG\Rep\ea\v8\question-answering\ke\preprocessing\distant_supervision_matches_open_nre_dev.txt --test_file C:\Users\danil\Documents\Northwestern\QRG\Rep\ea\v8\question-answering\ke\preprocessing\distant_supervision_matches_open_nre_final_test.txt --rel2id_file C:\Users\danil\Documents\Northwestern\QRG\Rep\ea\v8\question-answering\ke\preprocessing\distant_supervision_matches_open_nre_rel_2_id.jsonl --ckpt supervised_cnn_v3 --only_test
+2021-06-13 11:06:57,503 - root - INFO - Arguments:
+2021-06-13 11:06:57,503 - root - INFO -     ckpt: supervised_cnn_v3
+2021-06-13 11:06:57,505 - root - INFO -     only_test: True
+2021-06-13 11:06:57,505 - root - INFO -     encoder: pcnn
+2021-06-13 11:06:57,506 - root - INFO -     metric: micro_f1
+2021-06-13 11:06:57,506 - root - INFO -     dataset: none
+2021-06-13 11:06:57,506 - root - INFO -     train_file: C:\Users\danil\Documents\Northwestern\QRG\Rep\ea\v8\question-answering\ke\preprocessing\distant_supervision_matches_open_nre_train.txt
+2021-06-13 11:06:57,506 - root - INFO -     val_file: C:\Users\danil\Documents\Northwestern\QRG\Rep\ea\v8\question-answering\ke\preprocessing\distant_supervision_matches_open_nre_dev.txt
+2021-06-13 11:06:57,506 - root - INFO -     test_file: C:\Users\danil\Documents\Northwestern\QRG\Rep\ea\v8\question-answering\ke\preprocessing\distant_supervision_matches_open_nre_final_test.txt
+2021-06-13 11:06:57,506 - root - INFO -     rel2id_file: C:\Users\danil\Documents\Northwestern\QRG\Rep\ea\v8\question-answering\ke\preprocessing\distant_supervision_matches_open_nre_rel_2_id.jsonl
+2021-06-13 11:06:57,507 - root - INFO -     batch_size: 160
+2021-06-13 11:06:57,507 - root - INFO -     lr: 0.1
+2021-06-13 11:06:57,507 - root - INFO -     weight_decay: 1e-05
+2021-06-13 11:06:57,507 - root - INFO -     max_length: 250
+2021-06-13 11:06:57,508 - root - INFO -     max_epoch: 70
+2021-06-13 11:06:57,508 - root - INFO -     seed: 42
+2021-06-13 11:06:58,112 - root - INFO - Initializing word embedding with word2vec.
+2021-06-13 11:06:59,287 - root - INFO - Loaded sentence RE dataset C:\Users\danil\Documents\Northwestern\QRG\Rep\ea\v8\question-answering\ke\preprocessing\distant_supervision_matches_open_nre_train.txt with 25807 lines and 297 relations.
+2021-06-13 11:06:59,452 - root - INFO - Loaded sentence RE dataset C:\Users\danil\Documents\Northwestern\QRG\Rep\ea\v8\question-answering\ke\preprocessing\distant_supervision_matches_open_nre_dev.txt with 3000 lines and 297 relations.
+2021-06-13 11:06:59,785 - root - INFO - Loaded sentence RE dataset C:\Users\danil\Documents\Northwestern\QRG\Rep\ea\v8\question-answering\ke\preprocessing\distant_supervision_matches_open_nre_final_test.txt with 10000 lines and 297 relations.
+100%|██████████████████████████████████████████████████████████████████████████| 63/63 [00:11<00:00,  5.26it/s, acc=0.94]
+2021-06-13 11:07:17,306 - root - INFO - Evaluation result: {'acc': 0.9404, 'micro_p': 0.9404, 'micro_r': 0.9404, 'micro_f1': 0.9404}.
+predictions
+Vegetable oils are a kind of oil made from many different plants.
+{'pos': [58, 64], 'id': 'ManufacturingFacility', 'name': 'plants'}
+{'pos': [33, 37], 'id': 'Manufacturing', 'name': 'made'}
+GOLD = "typePrimaryFunction-eventOccursAt"
+PREDICTED = "typePrimaryFunction-eventOccursAt"
+MANUAL: 
+
+Their nuclei are unstable because the arrangement of protons and neutrons in them are unsteady, making them shake until that they begin to decay and change into completely different types of atoms by releasing certain types of radioactive particles, such as alpha particles, beta particles or gamma rays, and possibly by fissioning into smaller nuclei.
+{'pos': [6, 12], 'id': 'AtomicNucleus', 'name': 'nuclei'}
+{'pos': [191, 195], 'id': 'Atom', 'name': 'atom'}
+GOLD = "relationAllExists-objectFoundInLocation"
+PREDICTED = "relationExistsAll-centeredOn"
+
+Any oboist can play the cor anglais, reading the music and playing with normal oboe fingering.
+{'pos': [15, 19], 'id': 'MakingMusicalSound', 'name': 'play'}
+{'pos': [49, 54], 'id': 'Music', 'name': 'music'}
+GOLD = "outputsCreated-TypeType"
+PREDICTED = "outputsCreated-TypeType"
+
+The character first appeared in the movie in 1999.
+{'pos': [4, 13], 'id': 'Actor', 'name': 'character'}
+{'pos': [20, 28], 'id': 'SomethingAppearingSomewhere', 'name': 'appeared'}
+GOLD = "entities_not_related"
+PREDICTED = "agentTypePerformsWorkOfType"
+
+Candy is a sweet kind of food that is usually made from sugar and water, with flavors and other ingredients added.
+{'pos': [56, 61], 'id': 'Sugar', 'name': 'sugar'}
+{'pos': [11, 16], 'id': 'SweetTaste', 'name': 'sweet'}
+GOLD = "typicalTasteOfType"
+PREDICTED = "typicalTasteOfType"
+
+The E5 joins the M6 Toll from the M42 and then uses the M6 to its north end at Carlisle.
+{'pos': [42, 46], 'id': 'List', 'name': 'then'}
+{'pos': [47, 50], 'id': 'Thing', 'name': 'use'}
+GOLD = "coExtensional"
+PREDICTED = "coExtensional"
+
+Candy is a sweet kind of food that is usually made from sugar and water, with flavors and other ingredients added.
+{'pos': [56, 61], 'id': 'Sugar', 'name': 'sugar'}
+{'pos': [11, 16], 'id': 'SweetTaste', 'name': 'sweet'}
+GOLD = "typicalTasteOfType"
+PREDICTED = "typicalTasteOfType"
+
+This is how buckwheat got its name - buckwheat is a plant that is used like wheat and whose seeds look like "buck", or beech seeds.
+{'pos': [52, 57], 'id': 'PuttingSomethingSomewhere', 'name': 'plant'}
+{'pos': [66, 70], 'id': 'UsingAnObject', 'name': 'used'}
+GOLD = "entities_not_related"
+PREDICTED = "typePrimaryFunction-eventOccursAt"
+
+In 1761, during the French and Indian War, a contingent of British soldiers led by Lieutenant Edward Jenkins captured and occupied the fort.
+{'pos': [67, 75], 'id': 'Soldier', 'name': 'soldiers'}
+{'pos': [38, 41], 'id': 'War', 'name': 'war'}
+GOLD = "agentTypePerformsWorkOfType"
+PREDICTED = "agentTypePerformsWorkOfType"
+
+A machine gun is a weapon that can fire one bullet after another as long as the trigger is pulled and there are bullets ready to fire.
+{'pos': [35, 39], 'id': 'CombustionProcess', 'name': 'fire'}
+{'pos': [2, 9], 'id': 'MechanicalDevice', 'name': 'machine'}
+GOLD = "entities_not_related"
+PREDICTED = "typePrimaryFunction-deviceUsed"
+
+Players may also bet with real money, but when playing they usually use chips instead of money, because chips are easier to pick up and count, then at the end of the game players will swap their chips for money.
+{'pos': [143, 147], 'id': 'List', 'name': 'then'}
+{'pos': [136, 141], 'id': 'Thing', 'name': 'count'}
+GOLD = "coExtensional"
+PREDICTED = "coExtensional"
+
+When the capital was moved to Philadelphia, Pennsylvania, Pennsylvania from 1790 to 1800, the Philadelphia County Building (Congress Hall) became the capitol.
+{'pos': [30, 42], 'id': 'CityOfPhiladelphiaPA', 'name': 'philadelphia'}
+{'pos': [44, 56], 'id': 'Pennsylvania-State', 'name': 'pennsylvania'}
+GOLD = "cityInState"
+PREDICTED = "cityInState"
+
+On the third count, or on a further beat after the third count (saying "shoot"), the players change their hands into one of three gestures, which they then "throw" by extending it towards their opponent.
+{'pos': [151, 155], 'id': 'List', 'name': 'then'}
+{'pos': [13, 18], 'id': 'Thing', 'name': 'count'}
+GOLD = "coExtensional"
+PREDICTED = "coExtensional"
+
+In flowering plants, the female gametes are made of only eight cells, called the embryo sac, inside the ovule.
+{'pos': [13, 19], 'id': 'ManufacturingFacility', 'name': 'plants'}
+{'pos': [44, 48], 'id': 'Manufacturing', 'name': 'made'}
+GOLD = "typePrimaryFunction-eventOccursAt"
+PREDICTED = "typePrimaryFunction-eventOccursAt"
+
+Showers have a shower head that squirts out water.
+{'pos': [0, 6], 'id': 'ShowerStall', 'name': 'shower'}
+{'pos': [15, 26], 'id': 'ShowerHead', 'name': 'shower head'}
+GOLD = "physicalPartTypes"
+PREDICTED = "bodyPartsUsed-TypeType"
+
+Girls also held weaving and needlework competitions to see who had the best hands and the brightest mind, both important to being a good wife and mother in ancient China.
+{'pos': [63, 66], 'id': 'IntelligentAgent', 'name': 'had'}
+{'pos': [100, 104], 'id': 'Mind', 'name': 'mind'}
+GOLD = "relationExistsAll-properParts"
+PREDICTED = "relationExistsAll-properParts"
+
+Some children as young as eight years of age play and appreciate classical music.
+{'pos': [45, 49], 'id': 'MakingMusicalSound', 'name': 'play'}
+{'pos': [75, 80], 'id': 'Music', 'name': 'music'}
+GOLD = "outputsCreated-TypeType"
+PREDICTED = "outputsCreated-TypeType"
+
+There are other kinds of medical thermometers: "tympanic" thermometers test the temperature of the tympan (the eardrum) with infrared; "band" thermometers test a person's temperature on the fron of their head.
+{'pos': [33, 45], 'id': 'Thermometer', 'name': 'thermometers'}
+{'pos': [80, 91], 'id': 'Temperature', 'name': 'temperature'}
+GOLD = "typePrimaryFunction-deviceUsed"
+PREDICTED = "typePrimaryFunction-deviceUsed"
+
+Wash the hands and arms to the elbows again and again.
+{'pos': [19, 23], 'id': 'Arm', 'name': 'arms'}
+{'pos': [9, 13], 'id': 'Hand', 'name': 'hand'}
+GOLD = "properPhysicalPartTypes"
+PREDICTED = "properPhysicalPartTypes"
+
+He was an important writer and director for the young East Germany.
+{'pos': [20, 26], 'id': 'Writer', 'name': 'writer'}
+{'pos': [31, 39], 'id': 'Manager', 'name': 'director'}
+GOLD = "entities_not_related"
+PREDICTED = "agentTypePerformsWorkOfType"
+
+The human body has a head, neck, torso, two arms, two legs and the genitals of the groin, which differ between males and females.
+{'pos': [4, 9], 'id': 'HomoSapiens', 'name': 'human'}
+{'pos': [54, 57], 'id': 'Leg', 'name': 'leg'}
+GOLD = "relationAllExistsCount-anatomicalParts"
+PREDICTED = "relationAllExistsCount-anatomicalParts"
+
+After they won the gold medal in the 1998 Olympics in Nagano, Japan, Platov started skating as a professional with a different partner: Maya Usova.
+{'pos': [42, 50], 'id': 'OlympicGames', 'name': 'olympics'}
+{'pos': [24, 29], 'id': 'Medal-Physical', 'name': 'medal'}
+GOLD = "eventTypeHasCloselyAssociatedObjectTypes"
+PREDICTED = "countryOfCity"
+
+"Dr. Jekyll and Mr. Hyde" is well known for describing the mind and split personalities.
+{'pos': [34, 39], 'id': 'IntelligentAgent', 'name': 'known'}
+{'pos': [59, 63], 'id': 'Mind', 'name': 'mind'}
+GOLD = "relationAllExists-properParts"
+PREDICTED = "relationExistsAll-properParts"
+
+This is an "incomplete" list of structures taller tha|N|1,148 feet (350 m) under construction.
+{'pos': [81, 93], 'id': 'Constructing', 'name': 'construction'}
+{'pos': [32, 41], 'id': 'ConstructionArtifact', 'name': 'structure'}
+GOLD = "outputsCreated-TypeType"
+PREDICTED = "outputsCreated-TypeType"
+
+The stories start with three pictures of God making light, making the Earth, the Sun and the Moon, and making the Sea and Sky.
+{'pos': [89, 97], 'id': 'MoonOfEarth', 'name': 'the moon'}
+{'pos': [70, 75], 'id': 'PlanetEarth', 'name': 'earth'}
+GOLD = "orbits"
+PREDICTED = "biggerThan"
+
+Together with the English Channel in the south, the southern North Sea is the busiest body of water in the world.
+{'pos': [61, 66], 'id': 'North-Generally', 'name': 'north'}
+{'pos': [41, 46], 'id': 'South-Generally', 'name': 'south'}
+GOLD = "oppositeDirection-Interval"
+PREDICTED = "oppositeDirection-Interval"
+
+From those pieces the Earth and sky, the stars, The sun and the moon were born.
+{'pos': [18, 27], 'id': 'PlanetEarth', 'name': 'the earth'}
+{'pos': [60, 68], 'id': 'MoonOfEarth', 'name': 'the moon'}
+GOLD = "biggerThan"
+PREDICTED = "orbits"
+
+It is a small state, shaped like a letter [S], and bordered on the west by Pennsylvania and Delaware across the Delaware River, on the north by New York, on the northeast by the Hudson River and New York City, on the east and southeast by the Atlantic Ocean, and on the southwest by Delaware Bay.
+{'pos': [174, 184], 'id': 'HudsonRiver', 'name': 'the hudson'}
+{'pos': [144, 152], 'id': 'NewYork-State', 'name': 'new york'}
+GOLD = "flowsInRegions"
+PREDICTED = "flowsInRegions"
+
+This energy is made into electricity, which then can be used to power machines and heat homes.
+{'pos': [44, 48], 'id': 'List', 'name': 'then'}
+{'pos': [56, 60], 'id': 'Thing', 'name': 'used'}
+GOLD = "coExtensional"
+PREDICTED = "coExtensional"
+
+If the demand goes down (people want less) or the supply goes up (suppliers have more of something) then the price will go down.
+{'pos': [100, 104], 'id': 'List', 'name': 'then'}
+{'pos': [93, 98], 'id': 'Thing', 'name': 'thing'}
+GOLD = "coExtensional"
+PREDICTED = "coExtensional"
+
+__NOTOC__ A. acetic acid - acid - adenosine diphosphate (ADP) - alcohol - alkali - allotrope - Alpha helix - amino acid - ammonia - antibiotic - antibody - apoptosis - archaea - atom - atomic - atomic mass - atomic mass unit - atomic nucleus - atomic number - atomic orbital - Atomic weight - Avogadro's number - B. bacteria - base (chemistry) - base pair - benzene - biochemistry - biodiversity - bioethics - bioinformatics - biologist - biology - biophysics - biotechnology - boiling point - buffer solution - C. cancer - Carbohydrate - Carbon - catabolism - catalyst - cell - cell membrane - cellular respiration - cellulose - Chemical bond - Chemical compound - chemical element - Chemical formula - chloroplast - Chromatography - chromosome - Citric acid - Colorimeter - Concentration - covalent bond - cytoplasm - Cytosine - cytosol - D. deoxyribose - Deuterium - developmental biology - Diploid - Disaccharide - DNA - DNA replication - Drosophila - E. electron - electron shell - Electronegativity - electrophysiology - element - ELISA - ELISPOT - embryo - energy level - enkephalin - entomology - Entropy - Enzyme - Epinephrine - erythropoietin - Ethanol - eukaryote - evolution - evolutionary biology - F. Fat - flagellum - Formaldehyde - freezing point - fungi - G. gamete - Gel electrophoresis - gene - gene expression - gene pool - genetic drift - Genetic engineering - Genetics - Genome - genomics - Glycolysis - glycoprotein - gradient - granzyme - H. half-life - hemoglobin - heterotroph - Hormone - hydrocarbon - Hydrogen - Hydrogen bond - hydrolysis - I. immune system - immunoglobulin - immunology - Insulin - Intermolecular force - Ion channel - Ionic bond - Isomer - K. karyotype - Kelvin - keratin - kinetic energy - L. Le Chatelier's principle - life - life form - Lipid - Liquid - M. macroevolution - Macromolecule - marine biology - Medicine - meiosis - Melting point - Membrane protein - Mendelian inheritance - metabolism - microbe - Microbiology - mitosis - mixture - modern evolutionary synthesis - mole (unit) - molecular biology - Molecule - Monosaccharide - muscle - mutation - N. NADPH - nerve - nervous system - neurobiology - neuron - Neuroscience - neurotransmitter - neutron - nitrogen - Nobel Prize in Chemistry - Nucleic acid - nucleotide - nutrition - O. olfaction - organ (anatomy) - organelle - Organic - Organic chemistry - Organic compound - Organism - osmosis - Oxidation - oxygen - P. peptide - pesticide - pH - pharmacist - pharmacology - phenotype - phosphorus - photosynthesis - phylogenetics - physiology - polymer - polysaccharide - potassium - potential energy - prion - prokaryote - protein - protein biosynthesis - proton - R. Redox - respiration (physiology) - ribose - ribosome - RNA - S. scientific notation - sexual reproduction - SI - signal transduction - skeleton - skin - solution - solvation - solvent - spectroscopy - starch - sugar - sulfur - synapse T. T cell - taxonomy - thermometer - Toxin - V. vaccine - vacuole - virology - virus (biology) - vitamin - Y. Y chromosome - Yeast -
+{'pos': [1064, 1070], 'id': 'Electricity', 'name': 'energy'}
+{'pos': [959, 967], 'id': 'Electron', 'name': 'electron'}
+GOLD = "particleTypeOfType"
+PREDICTED = "particleTypeOfType"
+
+New countries by the Baltic Sea called Estonia, Finland, Latvia and Lithuania were created.
+{'pos': [68, 77], 'id': 'Lithuania', 'name': 'lithuania'}
+{'pos': [17, 31], 'id': 'BalticSea', 'name': 'the baltic sea'}
+GOLD = "bordersOn"
+PREDICTED = "geographicalSubRegions"
+
+Several bryozoan species can be found in the Midwestern United States, especially in Ohio, Indiana, and Kentucky which used to be a part of a large ocean.
+{'pos': [85, 89], 'id': 'Ohio-State', 'name': 'ohio'}
+{'pos': [91, 98], 'id': 'Indiana-State', 'name': 'indiana'}
+GOLD = "bordersOn"
+PREDICTED = "bordersOn"
+
+Tapirs have hoofed toes, with four toes on the front feet and three toes on the hind feet.
+{'pos': [53, 57], 'id': 'Foot-AnimalBodyPart', 'name': 'feet'}
+{'pos': [19, 22], 'id': 'Toe', 'name': 'toe'}
+GOLD = "properPhysicalPartTypes"
+PREDICTED = "properPhysicalPartTypes"
+
+Streets were flooded throughout southeast Texas, mobile homes were destroyed, and three people were killed.
+{'pos': [67, 76], 'id': 'KillingByOrganism', 'name': 'destroyed'}
+{'pos': [100, 104], 'id': 'Dying', 'name': 'kill'}
+GOLD = "relationAllExists-properSubEvents"
+PREDICTED = "relationAllExists-properSubEvents"
+
+Some of these carnivals, like the Notting Hill Carnival in London and the Melbourne Cup Racing Carnival in Australia are very famous.
+{'pos': [107, 116], 'id': 'Australia', 'name': 'australia'}
+{'pos': [74, 83], 'id': 'CityOfMelbourneAustralia', 'name': 'melbourne'}
+GOLD = "countryOfCity"
+PREDICTED = "countryOfCity"
+
+22-24% of people in Wisconsin and Minnesota are Lutherans.
+{'pos': [20, 29], 'id': 'Wisconsin-State', 'name': 'wisconsin'}
+{'pos': [34, 43], 'id': 'Minnesota-State', 'name': 'minnesota'}
+GOLD = "bordersOn"
+PREDICTED = "bordersOn"
+
+The ear is the part of the body that lets people hear.
+{'pos': [49, 53], 'id': 'Hearing', 'name': 'hear'}
+{'pos': [4, 7], 'id': 'Ear', 'name': 'ear'}
+GOLD = "anatomicalPartTypeRequired-doneBy"
+PREDICTED = "bodyPartsUsed-TypeType"
+
+By showing each eye a different image, the system could create a 3D effect.
+{'pos': [32, 37], 'id': 'VisualPerception', 'name': 'image'}
+{'pos': [16, 19], 'id': 'Eye', 'name': 'eye'}
+GOLD = "anatomicalPartTypeRequired-doneBy"
+PREDICTED = "bodyPartsUsed-TypeType"
+
+If a game has a $10 limit, then a raise must be exactly $10.
+{'pos': [5, 9], 'id': 'WildAnimal', 'name': 'game'}
+{'pos': [27, 31], 'id': 'List', 'name': 'then'}
+GOLD = "entities_not_related"
+PREDICTED = "coExtensional"
+
+A person whose job it is to cook food may be called a cook or a chef.
+{'pos': [64, 68], 'id': 'Chef', 'name': 'chef'}
+{'pos': [28, 32], 'id': 'CookingFood', 'name': 'cook'}
+GOLD = "agentTypePerformsWorkOfType"
+PREDICTED = "agentTypePerformsWorkOfType"
+
+Connecticut is bordered on the south by Long Island Sound, on the west by New York State, on the north by Massachusetts, and on the east by Rhode Island.
+{'pos': [74, 82], 'id': 'NewYork-State', 'name': 'new york'}
+{'pos': [0, 11], 'id': 'Connecticut-State', 'name': 'connecticut'}
+GOLD = "bordersOn"
+PREDICTED = "bordersOn"
+
+The sound is produced by blowing air through the double reed at the upper end of the instrument which forces the two reeds to vibrate together which produces the sound.
+{'pos': [25, 32], 'id': 'WindProcess', 'name': 'blowing'}
+{'pos': [33, 36], 'id': 'Air', 'name': 'air'}
+GOLD = "relationAllInstance-objectTranslating"
+PREDICTED = "relationAllInstance-objectTranslating"
+
+Domains of competence significant to the project - Literary history, history of culture, history of books, history of libraries and printing, history of theatre, reception and translation of European literatures in Romania, comparative literature, literary lexicography, travel studies, imagology, research and teaching Romanian literature etc.
+{'pos': [118, 127], 'id': 'LibrarySpace', 'name': 'libraries'}
+{'pos': [278, 285], 'id': 'Studying', 'name': 'studies'}
+GOLD = "typePrimaryFunction-eventOccursAt"
+PREDICTED = "typePrimaryFunction-eventOccursAt"
+
+The Ural Mountains ("Russian:" "Uralskiye gory") also known simply as the Urals is a mountain range that runs roughly north and south through western Russia.
+{'pos': [118, 123], 'id': 'North-Generally', 'name': 'north'}
+{'pos': [128, 133], 'id': 'South-Generally', 'name': 'south'}
+GOLD = "oppositeDirection-Interval"
+PREDICTED = "oppositeDirection-Interval"
+
+Out of this land, the United States would create many states, including California, Arizona, and Utah.
+{'pos': [97, 101], 'id': 'Utah-State', 'name': 'utah'}
+{'pos': [84, 91], 'id': 'Arizona-State', 'name': 'arizona'}
+GOLD = "bordersOn"
+PREDICTED = "bordersOn"
+
+Two people inside a car were killed when the car was swept away by the floodwaters in Naranjos.
+{'pos': [20, 23], 'id': 'ElevatorCar', 'name': 'car'}
+{'pos': [29, 35], 'id': 'KillingByOrganism', 'name': 'killed'}
+GOLD = "entities_not_related"
+PREDICTED = "relationAllExists-properSubEvents"
+
+In gardening, annual often refers to a plant grown outdoors in the spring and summer and surviving just for one growing season.
+{'pos': [3, 12], 'id': 'Gardening', 'name': 'gardening'}
+{'pos': [39, 44], 'id': 'PlantingAPlant', 'name': 'plant'}
+GOLD = "commonSubEventTypes"
+PREDICTED = "commonSubEventTypes"
+
+These great pianists became great stars in the way that, in music, only opera singers had been great stars before.
+{'pos': [34, 39], 'id': 'Actor', 'name': 'stars'}
+{'pos': [78, 85], 'id': 'Singer', 'name': 'singers'}
+GOLD = "entities_not_related"
+PREDICTED = "agentTypePerformsWorkOfType"
+
+Candy is a sweet kind of food that is usually made from sugar and water, with flavors and other ingredients added.
+{'pos': [0, 5], 'id': 'Candy', 'name': 'candy'}
+{'pos': [56, 61], 'id': 'Sugar', 'name': 'sugar'}
+GOLD = "typicalIngredientTypes"
+PREDICTED = "typicalIngredientTypes"
+
+West Virginia is bordered by Pennsylvania to the north, by Ohio to the north and west, by Kentucky to the west, by Maryland to the north and east, and by Virginia to the east and south.
+{'pos': [90, 98], 'id': 'Kentucky-State', 'name': 'kentucky'}
+{'pos': [0, 13], 'id': 'WestVirginia-State', 'name': 'west virginia'}
+GOLD = "bordersOn"
+PREDICTED = "bordersOn"
+
+The leaves are dark glossy green, and the flowers pure white, similar to citrus flowers.
+{'pos': [4, 10], 'id': 'Leaf', 'name': 'leaves'}
+{'pos': [27, 32], 'id': 'GreenColor', 'name': 'green'}
+GOLD = "colorOfType"
+PREDICTED = "colorOfType"
+
+After the Cold War, Romania became closer friends with Western Europe.
+{'pos': [63, 69], 'id': 'ContinentOfEurope', 'name': 'europe'}
+{'pos': [20, 27], 'id': 'Romania', 'name': 'romania'}
+GOLD = "geographicalSubRegionsOfContinent"
+PREDICTED = "geographicalSubRegionsOfContinent"
+
+"Lime green" is the color of the outer skin of a lime.
+{'pos': [1, 5], 'id': 'LimeTree', 'name': 'lime'}
+{'pos': [6, 11], 'id': 'GreenColor', 'name': 'green'}
+GOLD = "typeCommonColors"
+PREDICTED = "colorOfType"
+
+It is considered part of the Southwestern United States and is bordered by New Mexico to the east, Utah to the north, Nevada to the northwest, California to the west, its northeast corner touches part of Colorado, this area is known as the Four Corners.
+{'pos': [99, 103], 'id': 'Utah-State', 'name': 'utah'}
+{'pos': [204, 212], 'id': 'Colorado-State', 'name': 'colorado'}
+GOLD = "bordersOn"
+PREDICTED = "bordersOn"
+
+He is best known for his paintings of the Madonna and Christ Child and for his paintings in the Vatican in Rome, Italy.
+{'pos': [113, 118], 'id': 'Italy', 'name': 'italy'}
+{'pos': [107, 111], 'id': 'CityOfRomeItaly', 'name': 'rome'}
+GOLD = "countryOfCity"
+PREDICTED = "countryOfCity"
+
+Red dwarfs are small stars that are around 0.2 solar mass (the sun is equal to 1 solar mass), this is small for a star but is still 60,000 times the mass of the earth.
+{'pos': [157, 166], 'id': 'PlanetEarth', 'name': 'the earth'}
+{'pos': [59, 66], 'id': 'TheSun', 'name': 'the sun'}
+GOLD = "orbits"
+PREDICTED = "distanceBetween"
+
+Wealthy women and princesses also wore clothing that was colorful and bright.
+{'pos': [39, 47], 'id': 'PuttingOnAClothingItem', 'name': 'clothing'}
+{'pos': [34, 38], 'id': 'WearingSomething', 'name': 'wore'}
+GOLD = "relationAllAll-postSituation"
+PREDICTED = "relationAllAll-postSituation"
+
+For example, the watershed of the Mississippi River covers more than half of the United States.
+{'pos': [30, 45], 'id': 'MississippiRiver', 'name': 'the mississippi'}
+{'pos': [77, 94], 'id': 'UnitedStatesOfAmerica', 'name': 'the united states'}
+GOLD = "bisects"
+PREDICTED = "flowsInRegions"
+
+Today, the Comanche Nation has 10,000 members, about all of them live in Oklahoma (centered at Lawton), and the rest in Texas, California, and New Mexico.
+{'pos': [143, 153], 'id': 'NewMexico-State', 'name': 'new mexico'}
+{'pos': [73, 81], 'id': 'Oklahoma-State', 'name': 'oklahoma'}
+GOLD = "bordersOn"
+PREDICTED = "bordersOn"
+
+The book is very famous and has been read by many people all over the world.
+{'pos': [4, 8], 'id': 'BookCopy', 'name': 'book'}
+{'pos': [37, 41], 'id': 'Reading', 'name': 'read'}
+GOLD = "typePrimaryFunction-ibtUsed"
+PREDICTED = "typePrimaryFunction-ibtUsed"
+
+In 1847 some friends arranged for him to stay with them, but he was very ill by then.
+{'pos': [21, 29], 'id': 'CausingToBeInACertainCondition', 'name': 'arranged'}
+{'pos': [80, 84], 'id': 'List', 'name': 'then'}
+GOLD = "entities_not_related"
+PREDICTED = "coExtensional"
+
+A blade is the flat, sharp part of a tool or weapon used to cut or stab, such as a knife or sword.
+{'pos': [92, 97], 'id': 'Sword', 'name': 'sword'}
+{'pos': [2, 7], 'id': 'BladeOfADevice', 'name': 'blade'}
+GOLD = "physicalPartTypes"
+PREDICTED = "physicalPartTypes"
+
+Their free concert in New York City's Central Park in 1981 was the biggest concert ever, with 500,000 people (about the same number as Woodstock).
+{'pos': [38, 50], 'id': 'CentralParkNY', 'name': 'central park'}
+{'pos': [22, 35], 'id': 'CityOfNewYorkNY', 'name': 'new york city'}
+GOLD = "placeInCity"
+PREDICTED = "countryOfCity"
+
+Ireland is a large island to the west, divided into Northern Ireland which is part of the United Kingdom, and the Republic of Ireland.
+{'pos': [0, 7], 'id': 'Ireland-TheIsland', 'name': 'ireland'}
+{'pos': [52, 68], 'id': 'NorthernIreland', 'name': 'northern ireland'}
+GOLD = "geographicalSubRegions"
+PREDICTED = "geographicalSubRegions"
+
+A computer monitor is an electronic device that shows pictures.
+{'pos': [2, 10], 'id': 'Computer', 'name': 'computer'}
+{'pos': [11, 18], 'id': 'ComputerMonitor-VideoKind', 'name': 'monitor'}
+GOLD = "physicalPartTypes"
+PREDICTED = "physicalPartTypes"
+
+During the 1930s and 1940s, the Nazi, or "National Socialist" government of Germany conquered most of Europe.
+{'pos': [102, 108], 'id': 'ContinentOfEurope', 'name': 'europe'}
+{'pos': [76, 83], 'id': 'Germany', 'name': 'germany'}
+GOLD = "geographicalSubRegionsOfContinent"
+PREDICTED = "geographicalSubRegionsOfContinent"
+
+These three particles make up atoms, with protons located in the nucleus (or the center of the atom) with neutrons, and electrons orbiting the nucleus.
+{'pos': [30, 34], 'id': 'Atom', 'name': 'atom'}
+{'pos': [65, 72], 'id': 'AtomicNucleus', 'name': 'nucleus'}
+GOLD = "relationAllExists-centeredOn"
+PREDICTED = "relationExistsAll-centeredOn"
+
+Generally, a chapel is a place of worship that is not a church which belongs to a parish in a village or town, but is more private or has a special purpose.
+{'pos': [34, 41], 'id': 'Worshipping', 'name': 'worship'}
+{'pos': [56, 62], 'id': 'Church-Building', 'name': 'church'}
+GOLD = "typicalLocationTypeOfEventType"
+PREDICTED = "typicalLocationTypeOfEventType"
+
+The first subway in North America was the subway in Boston.
+{'pos': [26, 33], 'id': 'UnitedStatesOfAmerica', 'name': 'america'}
+{'pos': [52, 58], 'id': 'CityOfBostonMA', 'name': 'boston'}
+GOLD = "countryOfCity"
+PREDICTED = "countryOfCity"
+
+The string quartet (two violins, one viola and one cello) is a very well-established type of quartet.
+{'pos': [24, 31], 'id': 'Violin', 'name': 'violins'}
+{'pos': [4, 10], 'id': 'StringInAStringedInstrument', 'name': 'string'}
+GOLD = "physicalPartTypeCount"
+PREDICTED = "physicalPartTypeCount"
+
+The Main Station offers international trains to the Netherlands, Belgium, France and Switzerland, too.
+{'pos': [4, 8], 'id': 'Ocean', 'name': 'main'}
+{'pos': [38, 44], 'id': 'Entourage', 'name': 'trains'}
+GOLD = "entities_not_related"
+PREDICTED = "relationExistsAll-associates"
+
+The source of the Missouri River is in the Rocky Mountains, in the state of Montana.
+{'pos': [14, 26], 'id': 'MissouriRiver', 'name': 'the missouri'}
+{'pos': [63, 83], 'id': 'Montana-State', 'name': 'the state of montana'}
+GOLD = "flowsInRegions"
+PREDICTED = "flowsInRegions"
+
+Kubrick was born in New York City and lived there during his youth.
+{'pos': [20, 28], 'id': 'NewYork-State', 'name': 'new york'}
+{'pos': [61, 66], 'id': 'HomoSapiens', 'name': 'youth'}
+GOLD = "populationOfRegion"
+PREDICTED = "populationOfRegion"
+
+A solar eclipse happens when the Moon passes between Earth and the Sun.
+{'pos': [29, 37], 'id': 'MoonOfEarth', 'name': 'the moon'}
+{'pos': [53, 58], 'id': 'PlanetEarth', 'name': 'earth'}
+GOLD = "orbits"
+PREDICTED = "biggerThan"
+
+Obi-Wan then says that Luke must come with him to Alderaan to learn about the Force.
+{'pos': [8, 12], 'id': 'List', 'name': 'then'}
+{'pos': [78, 83], 'id': 'Thing', 'name': 'force'}
+GOLD = "coExtensional"
+PREDICTED = "coExtensional"
+
+For example, in Los Angeles, California, a red kerchief is associated with Bloods and a blue one is associated with Crips or Sureños.
+{'pos': [75, 81], 'id': 'Blood', 'name': 'bloods'}
+{'pos': [43, 46], 'id': 'RedColor', 'name': 'red'}
+GOLD = "colorOfType"
+PREDICTED = "typeCommonColors"
+
+Then these ancient Chinese learnt farming.
+{'pos': [0, 4], 'id': 'List', 'name': 'then'}
+{'pos': [27, 33], 'id': 'Studying', 'name': 'learnt'}
+GOLD = "entities_not_related"
+PREDICTED = "coExtensional"
+
+The red bone marrow in the middle of the bigger bones are what make the red blood cells that we need.
+{'pos': [76, 81], 'id': 'Blood', 'name': 'blood'}
+{'pos': [4, 7], 'id': 'RedColor', 'name': 'red'}
+GOLD = "colorOfType"
+PREDICTED = "colorOfType"
+
+It can be an animal, plant or any other thing.
+{'pos': [13, 19], 'id': 'Animal', 'name': 'animal'}
+{'pos': [21, 26], 'id': 'PlantingAPlant', 'name': 'plant'}
+GOLD = "entities_not_related"
+PREDICTED = "relationAllExists-objectTakenCareOf"
+
+When this muscle contracts it pushes blood through our circulatory system.
+{'pos': [10, 16], 'id': 'Muscle', 'name': 'muscle'}
+{'pos': [17, 25], 'id': 'Shrinkage', 'name': 'contract'}
+GOLD = "typeBehaviorCapable-doneBy"
+PREDICTED = "physicalPartTypes"
+
+Even the Erinyes accepted the decision, and from then on they were also called Eumenides, because they could also let people go in peace if their crime was done for a good reason.
+{'pos': [49, 53], 'id': 'List', 'name': 'then'}
+{'pos': [172, 178], 'id': 'Thing', 'name': 'reason'}
+GOLD = "coExtensional"
+PREDICTED = "coExtensional"
+
+The atmosphere protects life on Earth by absorbing (taking) ultraviolet radiation from the sun, and balancing the temperature on earth between day and night.
+{'pos': [87, 94], 'id': 'TheSun', 'name': 'the sun'}
+{'pos': [114, 125], 'id': 'Temperature', 'name': 'temperature'}
+GOLD = "temperatureOfObject"
+PREDICTED = "orbits"
+
+Rhode Island is bordered on the north and east by Massachusetts, on the west by Connecticut, and on the south by Rhode Island Sound and the Atlantic Ocean.
+{'pos': [42, 46], 'id': 'East-Generally', 'name': 'east'}
+{'pos': [72, 76], 'id': 'West-Generally', 'name': 'west'}
+GOLD = "oppositeDirection-Interval"
+PREDICTED = "oppositeDirection-Interval"
+
+When people talk about lobsters, they mean "clawed lobsters" most of the time, such as the genus "Homarus".
+{'pos': [23, 31], 'id': 'ClawedLobster', 'name': 'lobsters'}
+{'pos': [44, 50], 'id': 'Claw', 'name': 'clawed'}
+GOLD = "properPhysicalPartTypes"
+PREDICTED = "properPhysicalPartTypes"
+
+Peru is the country south of Ecuador.
+{'pos': [29, 36], 'id': 'Ecuador', 'name': 'ecuador'}
+{'pos': [0, 4], 'id': 'Peru', 'name': 'peru'}
+GOLD = "entities_not_related"
+PREDICTED = "geographicalSubRegionsOfContinent"
+
+If these witnesses cannot be produced then the punishment cannot be executed.In addition, there are several conditions related to the theft, stolen items, and circumstances.
+{'pos': [38, 42], 'id': 'List', 'name': 'then'}
+{'pos': [108, 118], 'id': 'Thing', 'name': 'conditions'}
+GOLD = "coExtensional"
+PREDICTED = "coExtensional"
+
+These philosophers write books and articles about philosophy and teach classes about philosophy to university or college students.
+{'pos': [50, 60], 'id': 'Philosophy', 'name': 'philosophy'}
+{'pos': [6, 17], 'id': 'Philosopher', 'name': 'philosopher'}
+GOLD = "relationInstanceAll-focalFieldOfType"
+PREDICTED = "typePrimaryFunction-ibtUsed"
+
+The MRT system had been using its two main lines, the North South and East West Lines, for more than a decade until the opening of the North East Line in 2003.
+{'pos': [54, 59], 'id': 'North-Generally', 'name': 'north'}
+{'pos': [60, 65], 'id': 'South-Generally', 'name': 'south'}
+GOLD = "oppositeDirection-Interval"
+PREDICTED = "oppositeDirection-Interval"
+
+It is made from a plant called agave.
+{'pos': [18, 23], 'id': 'ManufacturingFacility', 'name': 'plant'}
+{'pos': [6, 10], 'id': 'Manufacturing', 'name': 'made'}
+GOLD = "typePrimaryFunction-eventOccursAt"
+PREDICTED = "typePrimaryFunction-eventOccursAt"
+
+It was thought that the library at Wearmouth-Jarrow was between 300-500 books, making it one of the largest and most extensive in England.
+{'pos': [24, 31], 'id': 'LibrarySpace', 'name': 'library'}
+{'pos': [72, 76], 'id': 'BookCopy', 'name': 'book'}
+GOLD = "typePrimaryFunction-eventOccursAt"
+PREDICTED = "typePrimaryFunction-eventOccursAt"
+
+Red blood cells (also known as RBCs, red blood corpuscles or erythrocytes) are cells that make up blood.
+{'pos': [4, 9], 'id': 'Blood', 'name': 'blood'}
+{'pos': [0, 3], 'id': 'RedColor', 'name': 'red'}
+GOLD = "colorOfType"
+PREDICTED = "colorOfType"
+
+3 From Elisabeth Bumiller's interview of Jerrold M. Post, the founder of the Center for the Analysis of Personality and Political Behavior at the CIA in the "New York Times' (May 15, 2004) on the importance of events during Saddam Hussein's youth.
+{'pos': [158, 166], 'id': 'NewYork-State', 'name': 'new york'}
+{'pos': [241, 246], 'id': 'HomoSapiens', 'name': 'youth'}
+GOLD = "populationOfRegion"
+PREDICTED = "populationOfRegion"
+
+Isaac calculated the force needed to keep the moon moving around the earth.
+{'pos': [69, 74], 'id': 'PlanetEarth', 'name': 'earth'}
+{'pos': [42, 50], 'id': 'MoonOfEarth', 'name': 'the moon'}
+GOLD = "biggerThan"
+PREDICTED = "distanceBetween"
+
+Sometime around 375, Christians in Eastern Europe started singing religious songs back and forth between two groups; in 386, St. Ambrose brought this tradition to Western Europe.
+{'pos': [43, 49], 'id': 'ContinentOfEurope', 'name': 'europe'}
+{'pos': [163, 177], 'id': 'WesternEurope', 'name': 'western europe'}
+GOLD = "geographicalSubRegionsOfContinent"
+PREDICTED = "geographicalSubRegionsOfContinent"
+
+The second phrase has 2 bars (8 beats) of subdominant chord then 2 bars of tonic chord.
+{'pos': [4, 10], 'id': 'CalendarSecond', 'name': 'second'}
+{'pos': [60, 64], 'id': 'List', 'name': 'then'}
+GOLD = "entities_not_related"
+PREDICTED = "coExtensional"
+
+The biggest city in Japan is Tokyo, which is the capital.
+{'pos': [20, 25], 'id': 'Japan', 'name': 'japan'}
+{'pos': [29, 34], 'id': 'CityOfTokyoJapan', 'name': 'tokyo'}
+GOLD = "countryOfCity"
+PREDICTED = "countryOfCity"
+
+People were in pain and then they died a horrible death.
+{'pos': [15, 19], 'id': 'Pain-PhysiologicalCondition', 'name': 'pain'}
+{'pos': [24, 28], 'id': 'List', 'name': 'then'}
+GOLD = "entities_not_related"
+PREDICTED = "coExtensional"
+
+Beethoven wrote music for Goethe’s play "Egmont".
+{'pos': [35, 39], 'id': 'MakingMusicalSound', 'name': 'play'}
+{'pos': [16, 21], 'id': 'Music', 'name': 'music'}
+GOLD = "outputsCreated-TypeType"
+PREDICTED = "outputsCreated-TypeType"
+
+Candy is a sweet kind of food that is usually made from sugar and water, with flavors and other ingredients added.
+{'pos': [0, 5], 'id': 'Candy', 'name': 'candy'}
+{'pos': [11, 16], 'id': 'SweetTastingFood', 'name': 'sweet'}
+GOLD = "typicalTasteOfType"
+PREDICTED = "typicalTasteOfType"
+
+Virginia is bordered by West Virginia, Maryland, and the District of Columbia (across the Potomac River) to the north, by Chesapeake Bay and the Atlantic Ocean to the east, by North Carolina and Tennessee to the south, and by Kentucky and West Virginia to the west.
+{'pos': [24, 37], 'id': 'WestVirginia-State', 'name': 'west virginia'}
+{'pos': [39, 47], 'id': 'Maryland-CountyLiberia', 'name': 'maryland'}
+GOLD = "bordersOn"
+PREDICTED = "bordersOn"
+
+The entire planet is destroyed in ' (1977) when the Death Star fires a laser beam at the planet, which then explodes, killing everyone on it.
+{'pos': [118, 125], 'id': 'KillingByOrganism', 'name': 'killing'}
+{'pos': [52, 57], 'id': 'Dying', 'name': 'death'}
+GOLD = "relationAllExists-properSubEvents"
+PREDICTED = "relationAllExists-properSubEvents"
+
+The mosquito that carries malaria comes more at dawn (when the sun comes up) and dusk (when the sun goes down.)
+{'pos': [73, 75], 'id': 'Up-Generally', 'name': 'up'}
+{'pos': [105, 109], 'id': 'Down-Generally', 'name': 'down'}
+GOLD = "oppositeDirection-Interval"
+PREDICTED = "oppositeDirection-Interval"
+
+Just like in any other science, a group of psychologists can never be completely sure that their theory is the right one; but if they keep trying to show that it's wrong and they never do, they can be confident that their theory works.
+{'pos': [201, 210], 'id': 'Confidence', 'name': 'confident'}
+{'pos': [81, 85], 'id': 'Doubt', 'name': 'sure'}
+GOLD = "contraryFeelings"
+PREDICTED = "contraryFeelings"
+
+The pagans then decided to sign a truce with the Muslims.
+{'pos': [11, 15], 'id': 'List', 'name': 'then'}
+{'pos': [16, 23], 'id': 'IntentionalMentalEvent', 'name': 'decided'}
+GOLD = "entities_not_related"
+PREDICTED = "coExtensional"
+
+The Viceroyalty of New Spain's territory included what is the Bay Islands "(until 1643)", Cayman Islands "(until 1670)", Central America (as far as the southern border of Costa Rica until 1821), Cuba, Florida, Hispaniola (including Haiti until 1697), Jamaica "(until 1655)" Mariana Islands, Mexico, Philippines, Puerto Rico, nearly all of the southwest United States (including all or parts of the modern-day U.S. states of California, Nevada, Utah, Colorado, Wyoming, Arizona, New Mexico, Texas and Florida), and claims as far north as British Columbia and Alaska, but the northern boundary of New Spain was redefined by the Adams-Onís Treaty of 1819.
+{'pos': [121, 136], 'id': 'CentralAmerica', 'name': 'central america'}
+{'pos': [171, 181], 'id': 'CostaRica', 'name': 'costa rica'}
+GOLD = "geographicalSubRegions"
+PREDICTED = "geographicalSubRegions"
+
+The Baltic Sea is a sea in northern Europe between Scandinavia, Finland, Russia, the Baltic countries, Poland, and Germany.
+{'pos': [36, 42], 'id': 'ContinentOfEurope', 'name': 'europe'}
+{'pos': [64, 71], 'id': 'Finland', 'name': 'finland'}
+GOLD = "geographicalSubRegionsOfContinent"
+PREDICTED = "geographicalSubRegionsOfContinent"
+
+During the Cold War, the term Eastern Bloc (or Soviet Bloc) was used to refer to the Soviet Union and its allies in Central and Eastern Europe (Bulgaria, Czechoslovakia, East Germany, Hungary, Poland, Romania, and—until the early 1960s—Albania).
+{'pos': [136, 142], 'id': 'ContinentOfEurope', 'name': 'europe'}
+{'pos': [175, 182], 'id': 'Germany', 'name': 'germany'}
+GOLD = "geographicalSubRegionsOfContinent"
+PREDICTED = "geographicalSubRegionsOfContinent"
+
+The Sea Devills they lived when the dinosaurs lived until the moon came to close to the earth and they slept for hundreds of years.
+{'pos': [84, 93], 'id': 'PlanetEarth', 'name': 'the earth'}
+{'pos': [58, 66], 'id': 'MoonOfEarth', 'name': 'the moon'}
+GOLD = "biggerThan"
+PREDICTED = "biggerThan"
+
+In the book "Human Sexuality: Diversity in Contemporary America", by Strong, Devault and Sayad, the authors point out, "A baby boy may laugh in his crib while playing with his erect penis (although he does not ejaculate).
+{'pos': [122, 126], 'id': 'HumanInfant', 'name': 'baby'}
+{'pos': [13, 18], 'id': 'HomoSapiens', 'name': 'human'}
+GOLD = "relationMostInstance-foodSourceFor"
+PREDICTED = "contraryFeelings"
+
+Eris orbits around the Sun for 557 Earth years, and today it is located farthest away from the Sun.
+{'pos': [35, 40], 'id': 'PlanetEarth', 'name': 'earth'}
+{'pos': [19, 26], 'id': 'TheSun', 'name': 'the sun'}
+GOLD = "distanceBetween"
+PREDICTED = "distanceBetween"
+
+"Lime green" is the color of the outer skin of a lime.
+{'pos': [1, 5], 'id': 'LimeTree', 'name': 'lime'}
+{'pos': [6, 11], 'id': 'GreenColor', 'name': 'green'}
+GOLD = "typeCommonColors"
+PREDICTED = "colorOfType"
+
+Uranus completes its turn around the Sun in 84 earth years.
+{'pos': [47, 52], 'id': 'PlanetEarth', 'name': 'earth'}
+{'pos': [33, 40], 'id': 'TheSun', 'name': 'the sun'}
+GOLD = "distanceBetween"
+PREDICTED = "distanceBetween"
+
+Water flows from Lake Superior and Lake Michigan into Lake Huron; then through the Detroit River into Lake Erie; then through Niagara Falls into Lake Ontario; and then through the Saint Lawrence River to the Atlantic Ocean.
+{'pos': [40, 48], 'id': 'Michigan-State', 'name': 'michigan'}
+{'pos': [102, 111], 'id': 'LakeErie', 'name': 'lake erie'}
+GOLD = "lowestPointInRegion"
+PREDICTED = "bordersOn"
+
+A tide is the periodic rising and falling of Earth's ocean surface caused by the tidal forces of the Moon and the Sun acting on the oceans.
+{'pos': [110, 117], 'id': 'TheSun', 'name': 'the sun'}
+{'pos': [45, 50], 'id': 'PlanetEarth', 'name': 'earth'}
+GOLD = "biggerThan"
+PREDICTED = "biggerThan"
+
+They live directly to the south of the "North Sea", and to the west of the "East Sea" ("Oostzee", the Baltic Sea), the former "South Sea" ("Zuiderzee", today's IJsselmeer) and the today reclaimed "Middle Sea" ("Middelzee").
+{'pos': [76, 80], 'id': 'East-Generally', 'name': 'east'}
+{'pos': [63, 67], 'id': 'West-Generally', 'name': 'west'}
+GOLD = "oppositeDirection-Interval"
+PREDICTED = "oppositeDirection-Interval"
+
+When people go disco dancing, they usually wear tight trousers, leather shoes or boots, and glittery clothes.
+{'pos': [101, 108], 'id': 'PuttingOnAClothingItem', 'name': 'clothes'}
+{'pos': [43, 47], 'id': 'WearingSomething', 'name': 'wear'}
+GOLD = "relationAllAll-postSituation"
+PREDICTED = "relationAllAll-postSituation"
+
+Lymphocytes are round white blood cells a bit bigger than a red blood cell.
+{'pos': [28, 33], 'id': 'Blood', 'name': 'blood'}
+{'pos': [60, 63], 'id': 'RedColor', 'name': 'red'}
+GOLD = "relationAllInstance-mainColorOfObject"
+PREDICTED = "colorOfType"
+
+It happened in an industrial plant in the Italian town of Seveso.
+{'pos': [29, 34], 'id': 'Plant', 'name': 'plant'}
+{'pos': [42, 49], 'id': 'Italy', 'name': 'italian'}
+GOLD = "entities_not_related"
+PREDICTED = "typePrimaryFunction-eventOccursAt"
+
+An eyebrow is the stripe of hair about 2 cm over the eye.
+{'pos': [3, 6], 'id': 'Eye', 'name': 'eye'}
+{'pos': [28, 32], 'id': 'HairOnHead', 'name': 'hair'}
+GOLD = "entities_not_related"
+PREDICTED = "properPhysicalPartTypes"
+
+In 1980, the first harbour crossing was made by an MTR train as the Kwun Tong Line was extended even farther to Chater station, now known as Central station.
+{'pos': [0, 2], 'id': 'SocialBeing', 'name': 'in'}
+{'pos': [55, 60], 'id': 'Entourage', 'name': 'train'}
+GOLD = "relationExistsAll-associates"
+PREDICTED = "relationExistsAll-associates"
+
+Today, specimens of the Australian Mountain Ash, are among the tallest trees in the world at up to 92 metres in height and the tallest of all flowering plants; taller trees such as the Coast Redwood are all conifers.
+{'pos': [84, 89], 'id': 'GeopoliticalEntity', 'name': 'world'}
+{'pos': [152, 158], 'id': 'ManufacturingFacility', 'name': 'plants'}
+GOLD = "entities_not_related"
+PREDICTED = "typePrimaryFunction-eventOccursAt"
+
+Soon, other Death Eaters come up, but Malfoy can't kill Dumbledore as Voldemort ordered him to do.
+{'pos': [51, 55], 'id': 'KillingByOrganism', 'name': 'kill'}
+{'pos': [12, 17], 'id': 'Dying', 'name': 'death'}
+GOLD = "relationAllExists-properSubEvents"
+PREDICTED = "relationAllExists-properSubEvents"
+
+When World War II started, the policy of the Japanese government changed.
+{'pos': [5, 17], 'id': 'WorldWarII', 'name': 'world war ii'}
+{'pos': [45, 50], 'id': 'Japan', 'name': 'japan'}
+GOLD = "defeatedInConflict"
+PREDICTED = "defeatedInConflict"
+
+With this energy, the atoms are pushed together, which are repelled by the electrostatic force (a force between protons which are particles in the nucleus of the atom and have a positive electrical charge).
+{'pos': [10, 16], 'id': 'Electricity', 'name': 'energy'}
+{'pos': [112, 118], 'id': 'Proton', 'name': 'proton'}
+GOLD = "particleTypeOfType"
+PREDICTED = "particleTypeOfType"
+
+Dromedaries came from North Africa and the Greater Middle East region.
+{'pos': [22, 27], 'id': 'North-Generally', 'name': 'north'}
+{'pos': [58, 62], 'id': 'East-Generally', 'name': 'east'}
+GOLD = "entities_not_related"
+PREDICTED = "oppositeDirection-Interval"
+
+Giving pieces of music opus numbers helps us to know which piece of music it is.
+{'pos': [17, 22], 'id': 'Music', 'name': 'music'}
+{'pos': [7, 12], 'id': 'PartiallyTangible', 'name': 'piece'}
+GOLD = "entities_not_related"
+PREDICTED = "outputsCreated-TypeType"
+
+In his youth, he learned Greek, Latin and French.
+{'pos': [42, 48], 'id': 'France', 'name': 'french'}
+{'pos': [7, 12], 'id': 'HomoSapiens', 'name': 'youth'}
+GOLD = "populationOfRegion"
+PREDICTED = "countryOfCity"
+
+Abstract torts are injuries to a person's mind, reputation, or property.
+{'pos': [63, 71], 'id': 'IntelligentAgent', 'name': 'property'}
+{'pos': [42, 46], 'id': 'Mind', 'name': 'mind'}
+GOLD = "relationAllExists-properParts"
+PREDICTED = "relationAllExists-properParts"
+
+This outbreak of plague also spread north into Tyrol, an alpine region of western Austria and northern Italy.
+{'pos': [82, 89], 'id': 'Austria', 'name': 'austria'}
+{'pos': [103, 108], 'id': 'Italy', 'name': 'italy'}
+GOLD = "entities_not_related"
+PREDICTED = "geographicalSubRegionsOfContinent"
+
+Cooperation is when people work together to make their lives better, even though they are free to not work together, and receive little if any money for working together.
+{'pos': [27, 31], 'id': 'Workplace', 'name': 'work'}
+{'pos': [153, 160], 'id': 'WorkingEvent', 'name': 'working'}
+GOLD = "typePrimaryFunction-eventOccursAt"
+PREDICTED = "typePrimaryFunction-eventOccursAt"
+
+The chains of mountains show a direction northwest-southeast, except in the Southern peninsula (in Haiti) where they have a direction west-east.
+{'pos': [56, 60], 'id': 'East-Generally', 'name': 'east'}
+{'pos': [46, 50], 'id': 'West-Generally', 'name': 'west'}
+GOLD = "oppositeDirection-Interval"
+PREDICTED = "oppositeDirection-Interval"
+
+The nucleus is at the center of an atom.
+{'pos': [35, 39], 'id': 'Atom', 'name': 'atom'}
+{'pos': [4, 11], 'id': 'AtomicNucleus', 'name': 'nucleus'}
+GOLD = "relationExistsAll-centeredOn"
+PREDICTED = "relationExistsAll-centeredOn"
+
+Others think that the female orgasm causes the vagina to hold on to the penis more tightly, which makes sex more exciting for the man and causes him to ejaculate more quickly or to produce more semen; or that it encourages a woman to have sex more often as it feels good.
+{'pos': [152, 161], 'id': 'Ejaculating', 'name': 'ejaculate'}
+{'pos': [194, 199], 'id': 'Semen', 'name': 'semen'}
+GOLD = "relationAllExists-outputsSecreted"
+PREDICTED = "relationAllExists-outputsSecreted"
+
+It will explode in air because it reacts with many other elements in the air like oxygen and nitrogen.
+{'pos': [19, 22], 'id': 'Air', 'name': 'air'}
+{'pos': [82, 88], 'id': 'Oxygen', 'name': 'oxygen'}
+GOLD = "mainConstituent-TypeType"
+PREDICTED = "mainConstituent-TypeType"
+
+Four of the five Great Lakes (Superior, Huron, Erie, and Ontario) are shared between Canada and the United States (Lake Michigan is wholly within the USA), and they make up 16% of the Earth's fresh water.
+{'pos': [146, 153], 'id': 'UnitedStatesOfAmerica', 'name': 'the usa'}
+{'pos': [198, 203], 'id': 'Water-Ingestible', 'name': 'water'}
+GOLD = "entities_not_related"
+PREDICTED = "mainConstituent-TypeType"
+
+"The Castle" starred Michael Caton and Anne Tenney and was filmed in Melbourne, Australia.
+{'pos': [80, 89], 'id': 'Australia', 'name': 'australia'}
+{'pos': [69, 78], 'id': 'CityOfMelbourneAustralia', 'name': 'melbourne'}
+GOLD = "countryOfCity"
+PREDICTED = "countryOfCity"
+
+Bundy was still living in Utah in 1975 and was still attending law school but he began only killing people in Colorado.
+{'pos': [110, 118], 'id': 'Colorado-State', 'name': 'colorado'}
+{'pos': [26, 30], 'id': 'Utah-State', 'name': 'utah'}
+GOLD = "bordersOn"
+PREDICTED = "bordersOn"
+
+To the south-east there is the Baltic Sea, to the west the North Sea, to the north the Skagerrak and to the north-east the Kattegat.
+{'pos': [59, 64], 'id': 'North-Generally', 'name': 'north'}
+{'pos': [7, 12], 'id': 'South-Generally', 'name': 'south'}
+GOLD = "oppositeDirection-Interval"
+PREDICTED = "oppositeDirection-Interval"
+
+Because the "lapis lazuli" was not painted in fresco, it often came off the painting in flakes.
+{'pos': [76, 84], 'id': 'PaintingAPicture', 'name': 'painting'}
+{'pos': [35, 40], 'id': 'Painting-ArtForm', 'name': 'paint'}
+GOLD = "outputsCreated-TypeType"
+PREDICTED = "outputsCreated-TypeType"
+
+The Mycelium is the part of a fungus that is underground (or inside another substance).
+{'pos': [30, 36], 'id': 'Fungus', 'name': 'fungus'}
+{'pos': [4, 12], 'id': 'Mycelium', 'name': 'mycelium'}
+GOLD = "relationExistsAll-anatomicalParts"
+PREDICTED = "typicalLocationTypeOfType"
+
+Most asteroids in our Solar System are in the asteroid belt between Mars and Jupiter.
+{'pos': [5, 13], 'id': 'Asteroid', 'name': 'asteroid'}
+{'pos': [46, 59], 'id': 'AsteroidBelt', 'name': 'asteroid belt'}
+GOLD = "relationMostInstance-objectFoundInLocation"
+PREDICTED = "orbits"
+
+Herbivorous animals have to find the plants that they want to eat, but they do not have to catch them.
+{'pos': [0, 11], 'id': 'Herbivore', 'name': 'herbivorous'}
+{'pos': [37, 42], 'id': 'Plant', 'name': 'plant'}
+GOLD = "relationAllExists-eatsWillingly"
+PREDICTED = "commonSubEventTypes"
+
+It stars John Travolta as a young man named Tony Manero, who tries to escape his problem-filled life in Brooklyn by dancing at a dance club in New York City.
+{'pos': [143, 156], 'id': 'CityOfNewYorkNY', 'name': 'new york city'}
+{'pos': [104, 112], 'id': 'BrooklynNY-Borough', 'name': 'brooklyn'}
+GOLD = "geographicalSubRegions"
+PREDICTED = "countryOfCity"
+
+Out of this land, the United States would create many states, including California, Arizona, and Utah.
+{'pos': [72, 82], 'id': 'California-State', 'name': 'california'}
+{'pos': [84, 91], 'id': 'Arizona-State', 'name': 'arizona'}
+GOLD = "bordersOn"
+PREDICTED = "bordersOn"
+
+Luke uses the Force and fires the missile that destroys the Death Star.
+{'pos': [47, 55], 'id': 'KillingByOrganism', 'name': 'destroys'}
+{'pos': [60, 65], 'id': 'Dying', 'name': 'death'}
+GOLD = "relationAllExists-properSubEvents"
+PREDICTED = "relationAllExists-properSubEvents"
+
+Interstate 75 (sometimes shortened to I-75) is an interstate highway in the midwest and southeastern United States that runs north and south.
+{'pos': [125, 130], 'id': 'North-Generally', 'name': 'north'}
+{'pos': [88, 93], 'id': 'South-Generally', 'name': 'south'}
+GOLD = "oppositeDirection-Interval"
+PREDICTED = "oppositeDirection-Interval"
+
+The place where the river flows out into a bigger body of water is called the "mouth" of the river.
+{'pos': [58, 63], 'id': 'Water-Ingestible', 'name': 'water'}
+{'pos': [79, 84], 'id': 'Mouth', 'name': 'mouth'}
+GOLD = "entities_not_related"
+PREDICTED = "viscosityOfSubstance"
+
+A horse has a single hoof on each foot, a cow has two, a bird has its whole arm changed into a wing, and a human has a hand.
+{'pos': [107, 112], 'id': 'HomoSapiens', 'name': 'human'}2021-06-13 11:07:17,341 - root - INFO - Test set results:
+2021-06-13 11:07:17,341 - root - INFO - Micro precision: 0.9404
+2021-06-13 11:07:17,341 - root - INFO - Micro recall: 0.9404
+2021-06-13 11:07:17,341 - root - INFO - Micro F1: 0.9404
+
+{'pos': [76, 79], 'id': 'Arm', 'name': 'arm'}
+GOLD = "relationAllExistsCount-anatomicalParts"
+PREDICTED = "physicalPartTypes"
+
+In 1916, the prime minister, Lloyd George asked Chamberlain to manage the department in control of conscription, making civilians become soldiers in times of war.
+{'pos': [137, 145], 'id': 'Soldier', 'name': 'soldiers'}
+{'pos': [158, 161], 'id': 'War', 'name': 'war'}
+GOLD = "agentTypePerformsWorkOfType"
+PREDICTED = "agentTypePerformsWorkOfType"
+
+It is north of Oregon, west of Idaho, east of the Pacific Ocean, and south of British Columbia.
+{'pos': [31, 36], 'id': 'Idaho-State', 'name': 'idaho'}
+{'pos': [15, 21], 'id': 'Oregon-State', 'name': 'oregon'}
+GOLD = "bordersOn"
+PREDICTED = "bordersOn"
+
+2021-06-13 11:07:17,342 - wandb.sdk.internal.internal - INFO - Internal process exited
+Error in atexit._run_exitfuncs:
+Traceback (most recent call last):
+  File "C:\Users\danil\anaconda3\envs\qrg\lib\site-packages\colorama\ansitowin32.py", line 59, in closed
+    return stream.closed
+ValueError: underlying buffer has been detached
+
+(qrg) C:\Users\danil\Documents\Northwestern\Research\software\OpenNRE>
