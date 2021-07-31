@@ -3,13 +3,17 @@ import torch
 import numpy as np
 import json
 import sys
+import os
 
 sys.path.append('C:\\Users\\danil\\Documents\\Northwestern\\Research\\software\\OpenNRE\\')
 
+import sys
+import io
+sys.stdout = io.TextIOWrapper(sys.stdout.detach(), encoding = 'utf-8')
+sys.stderr = io.TextIOWrapper(sys.stderr.detach(), encoding = 'utf-8')
+
 import opennre
 from opennre import encoder, model, framework
-import sys
-import os
 import argparse
 import logging
 import random
@@ -146,7 +150,107 @@ if not args.only_test:
 
 # Test
 framework.load_state_dict(torch.load(ckpt)['state_dict'])
-result = framework.eval_model(framework.test_loader)
+# result = framework.eval_model(framework.test_loader)
+result, pred_result = framework.predict_model(framework.test_loader)
+
+
+# TODO: this is a hack
+
+def load_dictionaries():
+
+    FACT_LEXES_FILE = 'C:\\Users\\danil\\Documents\\Northwestern\\QRG\\Rep\\ea\\v8\\question-answering\\ke\\preprocessing\\fact-lexes-3.txt'
+    lex_to_concepts = defaultdict(lambda: set())
+    concept_to_lexes = defaultdict(lambda: set())
+    lst_to_fact = defaultdict(lambda: set())
+    concept_to_lst = defaultdict(lambda: set())
+
+    with open(FACT_LEXES_FILE, 'r', encoding='utf-8', errors='ignore') as file:
+        lines = file.readlines()
+        is_reading_facts = True
+        lex_concept = None
+        fact = None
+        it = 0
+        while it < len(lines):
+            line = lines[it]
+            if "== CONCEPT DICTIONARY ==" in line:
+                is_reading_facts = False
+            elif line[0] == " " or len(line) <= 1:
+                pass
+            elif line[0] == "(":
+                fact = line
+                count = line.count("(") - line.count(")")
+                while count > 0:
+                    it += 1
+                    line = lines[it]
+                    fact += line.strip("\n")
+                    count += line.count("(") - line.count(")")
+                fact = fact.strip()
+            elif line[:2] == "- ":
+                lex_concept = line[2:].strip()
+            elif is_reading_facts:
+                concepts = [x.strip() for x in line.split(",")]
+                if len(concepts) > 1:
+                    lst_to_fact[tuple(concepts)].add(fact)
+                    concept_to_lst[concepts[0]].add(tuple(concepts[1:]))
+            else:
+                lexes = [x.strip() for x in line.split(",")]
+                for lex in lexes:
+                    concept_to_lexes[lex_concept].add(lex)
+                for lex in lexes:
+                    lex_to_concepts[lex].add(lex_concept)
+            it += 1
+
+    return lst_to_fact
+
+def get_relation(term):
+    '''
+    Very simple heuristic to distinguish if a term is a relation
+    Return None is term is not relation, or the relation otherwise
+    '''
+    while len(term) > 0 and term[0] == '(':
+        term = term[1:]
+    while len(term) > 0 and term[-1] == ')':
+        term = term[:-1]
+    if term[:1].islower():
+        return term
+    return None
+
+def from_fact_to_rel(fact):
+    relation = '-'.join([get_relation(term) for term in fact.split() 
+        if get_relation(term) is not None])
+    return relation
+
+def print_preds_for_new_facts():
+    lst_to_fact = load_dictionaries()
+
+    print('predictions')
+    rel_pred_count = 0
+    for i in range(len(pred_result)):
+        data = framework.test_loader.dataset.data
+
+        head = data[i]['h']['id']
+        tail = data[i]['t']['id']
+        existing_facts = list(lst_to_fact[(head, tail)] | lst_to_fact[(tail, head)])
+        list_of_existing_relations = [from_fact_to_rel(fact) 
+            for fact in existing_facts]
+        if data[i]['relation'] in list_of_existing_relations:
+            continue
+
+        if id2rel[pred_result[i]] != 'entities_not_related':
+            rel_pred_count += 1
+            print(data[i]['text'])
+            print(data[i]['h'])
+            print(data[i]['t'])
+            print('GOLD = "' + str(data[i]['relation']) + '"')
+            print('PREDICTED = "' + str(id2rel[pred_result[i]]) + '"')
+            print('EXISINTG:', str(existing_facts))
+            print()
+        # if rel_pred_count > 150:
+        #     break
+
+    print('rel_pred_count', rel_pred_count)
+
+print_preds_for_new_facts()
 
 # Print the result
 logging.info('Test set results:')
