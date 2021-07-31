@@ -111,6 +111,7 @@ for arg in vars(args):
     logging.info('    {}: {}'.format(arg, getattr(args, arg)))
 
 rel2id = json.load(open(args.rel2id_file))
+id2rel = {v:k for k, v in rel2id.items()}
 
 # Define the sentence encoder
 if args.pooler == 'entity':
